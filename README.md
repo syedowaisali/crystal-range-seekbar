@@ -18,7 +18,7 @@ dependencies {
 - Styling with your own widget.
 - Creating newly widget from activity, fragment or dialog.
 
-# Sample usage
+# Sample usage - Seekbar
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
 
 Default style using xml.
@@ -125,3 +125,95 @@ rangeSeekbar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
 RelativeLayout container = (RelativeLayout) rootView.findViewById(R.id.contRangeSeekbar5);
 container.addView(rangeSeekbar);
 ```
+---
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
+
+Styling with create custom widget
+```java
+public class MySeekbar extends CrystalSeekbar {
+
+    public MySeekbar(Context context) {
+        super(context);
+    }
+
+    public MySeekbar(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public MySeekbar(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected float getCornerRadius(TypedArray typedArray) {
+        return super.getCornerRadius(typedArray);
+    }
+
+    @Override
+    protected float getMinValue(TypedArray typedArray) {
+        return 5f;
+    }
+
+    @Override
+    protected float getMaxValue(TypedArray typedArray) {
+        return 90f;
+    }
+
+    @Override
+    protected float getMinStartValue(TypedArray typedArray) {
+        return 20f;
+    }
+
+    @Override
+    protected float getSteps(TypedArray typedArray) {
+        return super.getSteps(typedArray);
+    }
+
+    @Override
+    protected int getBarColor(TypedArray typedArray) {
+        return Color.parseColor("#A0E3F7");
+    }
+
+    @Override
+    protected int getBarHighlightColor(TypedArray typedArray) {
+        return Color.parseColor("#53C9ED");
+    }
+
+    @Override
+    protected int getLeftThumbColor(TypedArray typedArray) {
+        return Color.parseColor("#058EB7");
+    }
+
+    @Override
+    protected int getLeftThumbColorPressed(TypedArray typedArray) {
+        return Color.parseColor("#046887");
+    }
+
+    @Override
+    protected Drawable getLeftDrawable(TypedArray typedArray) {
+        return ContextCompat.getDrawable(getContext(), R.drawable.thumb);
+    }
+
+    @Override
+    protected Drawable getLeftDrawablePressed(TypedArray typedArray) {
+        return ContextCompat.getDrawable(getContext(), R.drawable.thumb_pressed);
+    }
+
+    @Override
+    protected int getDataType(TypedArray typedArray) {
+        return super.getDataType(typedArray);
+    }
+}
+```
+
+# Sample usage - Range Seekbar
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6Q19QMzhoZzZubFE)
+
+Default style using xml.
+```groovy
+<com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+    android:id="@+id/rangeSeekbar1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+```
+---
