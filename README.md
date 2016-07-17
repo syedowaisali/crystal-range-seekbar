@@ -6,7 +6,7 @@ An extended version of seekbar and range seekbar with basic and advanced customi
 
 # Usage
 Add a dependency to your `build.gradle`:
-```groovy
+```
 dependencies {
     compile 'com.crystal:crystalrangeseekbar:1.0.0'
 }
@@ -22,7 +22,7 @@ dependencies {
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
 
 Default style using xml.
-```groovy
+```
 <com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
     android:id="@+id/rangeSeekbar1"
     android:layout_width="match_parent"
@@ -33,7 +33,7 @@ Default style using xml.
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6Snk1Q21TbjhkWjQ)
 
 Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
-```groovy
+```
 <com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
     android:id="@+id/rangeSeekbar2"
     android:layout_width="match_parent"
@@ -51,7 +51,7 @@ Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6cHBraW9fUDBMaEU)
 
 Styling with bubble animation with drawable using custom widget `BubbleThumbSeekbar`.
-```groovy
+```
 <com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
     android:id="@+id/rangeSeekbar3"
     android:layout_width="match_parent"
@@ -66,3 +66,27 @@ Styling with bubble animation with drawable using custom widget `BubbleThumbSeek
     app:left_thumb_image_pressed="@drawable/thumb_pressed"
     app:data_type="_integer"/>
 ```                    
+
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
+
+Create new seekbar from code and add to any view.
+```
+// get seekbar from view
+final CrystalSeekbar rangeSeekbar = new CrystalSeekbar(getActivity());
+
+// get min and max text view
+final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin5);
+final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax5);
+
+// set listener
+rangeSeekbar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
+    @Override
+    public void valueChanged(Number minValue) {
+        tvMin.setText(String.valueOf(minValue));
+    }
+});
+
+// get range seekbar container
+RelativeLayout container = (RelativeLayout) rootView.findViewById(R.id.contRangeSeekbar5);
+container.addView(rangeSeekbar);
+```
