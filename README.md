@@ -43,3 +43,19 @@ Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
     app:left_thumb_color_pressed="#4C2D1A"
     app:data_type="_integer"/>
 ```
+Styling with bubble animation with drawable using custom widget `BubbleThumbSeekbar`.
+```groovy
+<com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
+    android:id="@+id/rangeSeekbar3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:corner_radius="10"
+    app:min_value="0"
+    app:max_value="100"
+    app:steps="5"
+    app:bar_color="#F7BB88"
+    app:bar_highlight_color="#E07416"
+    app:left_thumb_image="@drawable/thumb"
+    app:left_thumb_image_pressed="@drawable/thumb_pressed"
+    app:data_type="_integer"/>
+```                    
