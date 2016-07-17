@@ -11,3 +11,9 @@ dependencies {
     compile 'com.crystal:crystalrangeseekbar:1.0.0'
 }
 ```
+
+# Features
+- Customize with xml using custom handy attributes.
+- Customize in your activity, fragment or dialog.
+- Styling with your own widget.
+- Creating newly widget from activity, fragment or dialog.
