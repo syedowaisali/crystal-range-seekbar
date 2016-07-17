@@ -20,6 +20,7 @@ dependencies {
 
 # Sample usage
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
+
 Default style using xml.
 ```groovy
 <com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
@@ -30,6 +31,7 @@ Default style using xml.
 ```
 
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6Snk1Q21TbjhkWjQ)
+
 Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
 ```groovy
 <com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
