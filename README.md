@@ -268,9 +268,25 @@ Set fix range (gap).
 
 __Available attributes__
 
-+ ``popupLayout``: layout to be used, must include ``android:id/text1 TextView``
-+ ``popupStyle``: can be ``fixed`` or ``follow``, default `follow`
-+ ``popupAnimationStyle``: in/out animation, default `fade`
-+ ``popupOffset``: distance from top/right of the widget to popup, default `0`
-+ ``popupAlwaysShown``: do not dismiss popup after _onStopTrackingTouch_, default `false`
-+ ``popupDraggable``: enables progress change by hint popup dragging, default `true`
++ ``corner_radius``: corner radius to be used seekbar, default ``0f``
++ ``min_value``: minimum value of seekbar, default ``0``
++ ``max_value``: maximum value of seekbar, default ``100``
++ ``min_start_value``: minimum start value must be equal or greater than min value, default ``min_value``
++ ``max_start_value``: maximum start value must be equal or less than max value, default ``max_value``
++ ``steps``: minimum steps between range, default NO_STEP ``-1f``
++ ``gap``: maintain minimum range between two thumbs, range must be greater >= min value && <= max value, default ``0f``
++ ``fix_gap``: maintain fix range between two thumbs, range must be greater >= min value && <= max value, default NO_FIXED_GAP ``-1f``
++ ``bar_color`` inactive bar background color, default ``Color.GRAY``
++ ``bar_highlight_color`` active bar background color, default ``Color.BLACK``
++ ``left_thumb_color`` default left thumb color, default ``Color.BLACK``
++ ``left_thumb_color_pressed`` active left thumb color, default ``Color.DKGRAY``
++ ``left_thumb_image`` left thumb drawable, default ``null``
++ ``left_thumb_image_pressed`` active left thumb drawable, default ``null``
++ ``right_thumb_color`` default right thumb color, default ``Color.BLACK``
++ ``right_thumb_color_pressed`` active right thumb color, default ``Color.DKGRAY``
++ ``right_thumb_image`` right thumb drawable, default ``null``
++ ``right_thumb_image_pressed`` active right thumb drawable, default ``null``
++ ``position`` can be ``left`` or ``right``, default ``left``
++ ``data_type`` can be ``_long`` or ``_double`` or ``_integer`` or ``_float`` or ``_short`` or ``_byte``, default ``_integer``
+
+
