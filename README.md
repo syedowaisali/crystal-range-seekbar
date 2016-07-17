@@ -77,6 +77,31 @@ Right to Left position (rtl)
     app:position="right"/>
 ```                    
 ---
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6RncwVndkSFFqMFE)
+
+Right to Left position with drawable position update from code (rtl)
+```groovy
+<com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
+    android:id="@+id/rangeSeekbar8"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:min_value="100"
+    app:max_value="200"
+    app:steps="5"
+    app:bar_color="#F7BB88"
+    app:bar_highlight_color="#E07416"
+    app:left_thumb_image="@drawable/thumb"
+    app:left_thumb_image_pressed="@drawable/thumb_pressed"
+    app:data_type="_integer"/>
+```                    
+```java
+// get seekbar from view
+final CrystalSeekbar rangeSeekbar = (CrystalSeekbar) rootView.findViewById(R.id.rangeSeekbar8);
+
+// change position left to right
+rangeSeekbar.setPosition(CrystalSeekbar.Position.RIGHT).apply();
+```
+---
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
 
 Create new seekbar from code and add to any view.
