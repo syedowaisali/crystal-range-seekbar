@@ -20,6 +20,8 @@ dependencies {
 
 # Sample usage
 Default style using xml.
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
+
 ```groovy
 <com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
     android:id="@+id/rangeSeekbar1"
