@@ -17,3 +17,11 @@ dependencies {
 - Customize in your activity, fragment or dialog.
 - Styling with your own widget.
 - Creating newly widget from activity, fragment or dialog.
+
+# Sample usage
+```groovy
+<com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
+    android:id="@+id/rangeSeekbar1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+```
