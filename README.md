@@ -47,6 +47,9 @@ Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
     app:left_thumb_color_pressed="#4C2D1A"
     app:data_type="_integer"/>
 ```
+
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6cHBraW9fUDBMaEU)
+
 Styling with bubble animation with drawable using custom widget `BubbleThumbSeekbar`.
 ```groovy
 <com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
