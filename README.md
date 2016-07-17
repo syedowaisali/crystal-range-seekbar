@@ -28,7 +28,7 @@ Default style using xml.
 
 ```
 
-Stying using custom attributes.
+Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
 ```groovy
 <com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
     android:id="@+id/rangeSeekbar2"
