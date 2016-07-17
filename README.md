@@ -28,7 +28,7 @@ Default style using xml.
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
-
+---
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6Snk1Q21TbjhkWjQ)
 
 Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
