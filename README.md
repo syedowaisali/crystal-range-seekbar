@@ -66,6 +66,17 @@ Styling with bubble animation with drawable using custom widget `BubbleThumbSeek
     app:data_type="_integer"/>
 ```                    
 ---
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6c0FnSDlVYnJyNVE)
+
+Right to Left position (rtl)
+```groovy
+<com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
+    android:id="@+id/rangeSeekbar7"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:position="right"/>
+```                    
+---
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
 
 Create new seekbar from code and add to any view.
