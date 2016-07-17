@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Range Seekbar -->
+    <declare-styleable name="CrystalRangeSeekbar" >
+        <attr name="corner_radius" format="float" />
+        <attr name="min_value" format="float" />
+        <attr name="max_value" format="float" />
+        <attr name="min_start_value" format="float" />
+        <attr name="max_start_value" format="float" />
+        <attr name="steps" format="float" />
+        <attr name="gap" format="float" />
+        <attr name="fix_gap" format="float" />
+        <attr name="bar_color" format="color" />
+        <attr name="bar_highlight_color" format="color" />
+        <attr name="left_thumb_color" format="color" />
+        <attr name="left_thumb_color_pressed" format="color" />
+        <attr name="left_thumb_image" format="reference" />
+        <attr name="left_thumb_image_pressed" format="reference" />
+        <attr name="right_thumb_color" format="color" />
+        <attr name="right_thumb_color_pressed" format="color" />
+        <attr name="right_thumb_image" format="reference" />
+        <attr name="right_thumb_image_pressed" format="reference" />
+        <attr name="position" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="data_type" format="enum">
+            <enum name="_long" value="0" />
+            <enum name="_double" value="1" />
+            <enum name="_integer" value="2" />
+            <enum name="_float" value="3" />
+            <enum name="_short" value="4" />
+            <enum name="_byte" value="5" />
+        </attr>
+    </declare-styleable>
+</resources>
