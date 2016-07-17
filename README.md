@@ -32,6 +32,9 @@ Default style using xml.
 ```
 
 Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
+
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6Snk1Q21TbjhkWjQ)
+
 ```groovy
 <com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
     android:id="@+id/rangeSeekbar2"
