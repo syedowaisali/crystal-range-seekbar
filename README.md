@@ -46,7 +46,7 @@ Styling with bubble animation using custom widget `BubbleThumbSeekbar`.
     app:left_thumb_color_pressed="#4C2D1A"
     app:data_type="_integer"/>
 ```
-
+---
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6cHBraW9fUDBMaEU)
 
 Styling with bubble animation with drawable using custom widget `BubbleThumbSeekbar`.
@@ -65,11 +65,11 @@ Styling with bubble animation with drawable using custom widget `BubbleThumbSeek
     app:left_thumb_image_pressed="@drawable/thumb_pressed"
     app:data_type="_integer"/>
 ```                    
-
+---
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
 
 Create new seekbar from code and add to any view.
-```groovy
+```java
 // get seekbar from view
 final CrystalSeekbar rangeSeekbar = new CrystalSeekbar(getActivity());
 
