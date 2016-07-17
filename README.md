@@ -126,7 +126,7 @@ RelativeLayout container = (RelativeLayout) rootView.findViewById(R.id.contRange
 container.addView(rangeSeekbar);
 ```
 ---
-![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6eFZkcFZKbWUxY1E)
+![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6NloxcEJOVTJzQ00)
 
 Styling with create custom widget
 ```java
