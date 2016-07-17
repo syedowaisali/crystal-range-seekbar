@@ -145,11 +145,6 @@ public class MySeekbar extends CrystalSeekbar {
     }
 
     @Override
-    protected float getCornerRadius(TypedArray typedArray) {
-        return super.getCornerRadius(typedArray);
-    }
-
-    @Override
     protected float getMinValue(TypedArray typedArray) {
         return 5f;
     }
@@ -162,11 +157,6 @@ public class MySeekbar extends CrystalSeekbar {
     @Override
     protected float getMinStartValue(TypedArray typedArray) {
         return 20f;
-    }
-
-    @Override
-    protected float getSteps(TypedArray typedArray) {
-        return super.getSteps(typedArray);
     }
 
     @Override
@@ -197,11 +187,6 @@ public class MySeekbar extends CrystalSeekbar {
     @Override
     protected Drawable getLeftDrawablePressed(TypedArray typedArray) {
         return ContextCompat.getDrawable(getContext(), R.drawable.thumb_pressed);
-    }
-
-    @Override
-    protected int getDataType(TypedArray typedArray) {
-        return super.getDataType(typedArray);
     }
 }
 ```
