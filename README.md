@@ -294,7 +294,7 @@ __Available attributes__
 ##On The Web
 
 * [Crystal Range Seekbar](http://codingsignals.com/crystal-range-seekbar-in-android/) *CODING SIGNALS*
-* 
+ 
 # LICENSE
 
 Licensed under the Apache License, Version 2.0 (the "License");
