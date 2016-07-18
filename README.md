@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/syedowaisali/maven/crystalrangeseekbar/images/download.svg) ](https://bintray.com/syedowaisali/maven/crystalrangeseekbar/_latestVersion)
+
 # Crystal Range Seekbar
 
 An extended version of seekbar and range seekbar with basic and advanced customization.
