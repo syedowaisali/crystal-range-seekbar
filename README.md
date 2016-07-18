@@ -291,6 +291,10 @@ __Available attributes__
 + ``position`` can be ``left`` or ``right``, default ``left``
 + ``data_type`` can be ``_long`` or ``_double`` or ``_integer`` or ``_float`` or ``_short`` or ``_byte``, default ``_integer``
 
+##On The Web
+
+* [Crystal Range Seekbar](http://codingsignals.com/crystal-range-seekbar-in-android/) *CODING SIGNALS*
+* 
 # LICENSE
 
 Licensed under the Apache License, Version 2.0 (the "License");
