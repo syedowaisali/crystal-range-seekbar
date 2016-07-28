@@ -422,10 +422,9 @@ public class CrystalRangeSeekbar extends View {
         }
         else if(minStartValue >= maxValue){
             minStartValue = maxValue;
-            setNormalizedMinValue(minStartValue);
+            setMinStartValue();
         }
         else{
-            minStartValue = minValue;
             setMinStartValue();
         }
 
@@ -437,10 +436,9 @@ public class CrystalRangeSeekbar extends View {
         }
         else if(maxStartValue >= maxValue){
             maxStartValue = maxValue;
-            setNormalizedMaxValue(maxStartValue);
+            setMaxStartValue();
         }
         else{
-            maxStartValue = maxValue;
             setMaxStartValue();
         }
         invalidate();
