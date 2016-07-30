@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/syedowaisali/maven/crystalrangeseekbar/images/download.svg) ](https://bintray.com/syedowaisali/maven/crystalrangeseekbar/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/syedowaisali/maven/crystalrangeseekbar/images/download.svg) ](https://bintray.com/syedowaisali/maven/crystalrangeseekbar/_latestVersion) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Crystal%20Range%20Seekbar-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3996)
 
 # Crystal Range Seekbar
 
