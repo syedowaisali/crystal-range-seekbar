@@ -1,4 +1,6 @@
-[ ![Download](https://api.bintray.com/packages/syedowaisali/maven/crystalrangeseekbar/images/download.svg) ](https://bintray.com/syedowaisali/maven/crystalrangeseekbar/_latestVersion) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Crystal%20Range%20Seekbar-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3996)
+[ ![Download](https://api.bintray.com/packages/syedowaisali/maven/crystalrangeseekbar/images/download.svg) ](https://bintray.com/syedowaisali/maven/crystalrangeseekbar/_latestVersion) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Crystal%20Range%20Seekbar-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3996) [![Coding Signals](https://img.shields.io/badge/Coding%20Signals-Crystal%20Range%20Seekbar-orange.svg)](http://codingsignals.com/crystal-range-seekbar-in-android/)
+
+
 
 # Crystal Range Seekbar
 
@@ -309,10 +311,6 @@ __Available attributes__
 + ``position`` can be ``left`` or ``right``, default ``left``
 + ``data_type`` can be ``_long`` or ``_double`` or ``_integer`` or ``_float`` or ``_short`` or ``_byte``, default ``_integer``
 
-##On The Web
-
-* [Crystal Range Seekbar](http://codingsignals.com/crystal-range-seekbar-in-android/) *CODING SIGNALS*
- 
 # LICENSE
 
 Licensed under the Apache License, Version 2.0 (the "License");
