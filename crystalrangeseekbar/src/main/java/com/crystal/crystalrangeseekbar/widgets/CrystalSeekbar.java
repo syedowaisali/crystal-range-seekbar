@@ -414,7 +414,7 @@ public class CrystalSeekbar extends View {
             setNormalizedMinValue(minStartValue);
         }
         else{
-            minStartValue = (long)getSelectedMinValue();
+            //minStartValue = (long)getSelectedMinValue();
             if(nextPosition != position){
                 minStartValue = (float)Math.abs(normalizedMaxValue - normalizedMinValue);
             }
@@ -422,15 +422,17 @@ public class CrystalSeekbar extends View {
                 minStartValue = Math.min(minStartValue, absoluteMaxValue);
                 minStartValue -= absoluteMinValue;
                 minStartValue = minStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
-                setNormalizedMinValue(minStartValue);
             }
-            else{
-                setNormalizedMinValue(minStartValue);
-            }
+
+            setNormalizedMinValue(minStartValue);
             position = nextPosition;
+
         }
 
         invalidate();
+        if (onSeekbarChangeListener != null) {
+            onSeekbarChangeListener.valueChanged(getSelectedMinValue());
+        }
     }
 
     //////////////////////////////////////////
