@@ -2,6 +2,7 @@ package com.crystal.crystalrangeseekbar.ui.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -77,6 +78,13 @@ public class RangeSeekbar extends Fragment {
                 tvMax.setText(String.valueOf(maxValue));
             }
         });
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                rangeSeekbar.setMinStartValue(20).setMaxStartValue(70).apply();
+            }
+        }, 3000);
     }
 
     private void setRangeSeekbar2(){

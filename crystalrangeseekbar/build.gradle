@@ -1,5 +1,33 @@
 apply plugin: 'com.android.library'
 
+ext {
+    // Where you will see your artifact in Bintray's web interface
+    // The "bintrayName" should match the name of the Bintray repro.
+    bintrayRepo = 'maven'
+    bintrayName = 'crystalrangeseekbar'
+
+    // Maven metadata
+    publishedGroupId = 'com.crystal'
+    libraryName = 'CrystalRangeSeekbar'
+    // Save yourself a head ache, and set this equal to the name of the Android Studio library
+    // module. The artifact name needs to match the name of the library.
+    artifact = 'crystalrangeseekbar'
+
+    libraryDescription = 'An extended version of android range seekbar.'
+
+    gitUrl = 'https://github.com/syedowaisali/crystal-range-seekbar.git'
+
+    libraryVersion = '1.0.1'
+
+    developerId = 'syedowaisali'
+    developerName = 'Syed Owais Ali'
+    developerEmail = 'dp.owaisali@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 24
     buildToolsVersion '24.0.1'
@@ -23,3 +51,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
 }
+
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'

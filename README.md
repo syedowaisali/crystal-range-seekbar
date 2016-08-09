@@ -12,7 +12,7 @@ An extended version of seekbar and range seekbar with basic and advanced customi
 Add a dependency to your `build.gradle`:
 ```groovy
 dependencies {
-    compile 'com.crystal:crystalrangeseekbar:1.0.0'
+    compile 'com.crystal:crystalrangeseekbar:1.0.1'
 }
 ```
 
@@ -310,6 +310,13 @@ __Available attributes__
 + ``right_thumb_image_pressed`` active right thumb drawable, default ``null``
 + ``position`` can be ``left`` or ``right``, default ``left``
 + ``data_type`` can be ``_long`` or ``_double`` or ``_integer`` or ``_float`` or ``_short`` or ``_byte``, default ``_integer``
+
+## Changelog
+##### 1.0.1 - 9-Aug-2016
+- Bug fix setMinStartValue and setMaxStartValue programatically.
+
+##### 1.0.0 - 17-July-2016
+- Add New Project.
 
 # LICENSE
 
