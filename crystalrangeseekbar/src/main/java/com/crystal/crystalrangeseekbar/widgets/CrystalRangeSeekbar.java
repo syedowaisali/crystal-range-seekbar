@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.example.crystalrangeseekbar.R;
 
 
@@ -53,6 +54,7 @@ public class CrystalRangeSeekbar extends View {
     //////////////////////////////////////////
 
     private OnRangeSeekbarChangeListener onRangeSeekbarChangeListener;
+    private OnRangeSeekbarFinalValueListener onRangeSeekbarFinalValueListener;
 
     private float absoluteMinValue;
     private float absoluteMaxValue;
@@ -345,6 +347,10 @@ public class CrystalRangeSeekbar extends View {
         if(this.onRangeSeekbarChangeListener != null){
             this.onRangeSeekbarChangeListener.valueChanged(getSelectedMinValue(), getSelectedMaxValue());
         }
+    }
+
+    public void setOnRangeSeekbarFinalValueListener(OnRangeSeekbarFinalValueListener onRangeSeekbarFinalValueListener){
+        this.onRangeSeekbarFinalValueListener = onRangeSeekbarFinalValueListener;
     }
 
     public Number getSelectedMinValue(){
@@ -947,6 +953,9 @@ public class CrystalRangeSeekbar extends View {
                     onStopTrackingTouch();
                     setPressed(false);
                     touchUp(event.getX(pointerIndex), event.getY(pointerIndex));
+                    if(onRangeSeekbarFinalValueListener != null){
+                        onRangeSeekbarFinalValueListener.finalValue(getSelectedMinValue(), getSelectedMaxValue());
+                    }
                 } else {
                     // Touch up when we never crossed the touch slop threshold
                     // should be interpreted as a tap-seek to that location.

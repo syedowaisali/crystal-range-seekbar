@@ -12,7 +12,7 @@ An extended version of seekbar and range seekbar with basic and advanced customi
 Add a dependency to your `build.gradle`:
 ```groovy
 dependencies {
-    compile 'com.crystal:crystalrangeseekbar:1.0.1'
+    compile 'com.crystal:crystalrangeseekbar:1.1.1'
 }
 ```
 
@@ -111,20 +111,28 @@ rangeSeekbar.setPosition(CrystalSeekbar.Position.RIGHT).apply();
 Create new seekbar from code and add to any view.
 ```java
 // get seekbar from view
-final CrystalSeekbar rangeSeekbar = new CrystalSeekbar(getActivity());
+final CrystalSeekbar seekbar = new CrystalSeekbar(getActivity());
 
 // get min and max text view
 final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin5);
 final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax5);
 
 // set listener
-rangeSeekbar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
+seekbar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
     @Override
     public void valueChanged(Number minValue) {
         tvMin.setText(String.valueOf(minValue));
     }
 });
 
+// set final value listener
+seekbar.setOnSeekbarFinalValueListener(new OnSeekbarFinalValueListener() {
+    @Override
+    public void finalValue(Number value) {
+        Log.d("CRS=>", String.valueOf(value));
+    }
+});
+        
 // get range seekbar container
 RelativeLayout container = (RelativeLayout) rootView.findViewById(R.id.contRangeSeekbar5);
 container.addView(rangeSeekbar);
@@ -222,6 +230,14 @@ rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() 
         tvMax.setText(String.valueOf(maxValue));
     }
 });
+
+// set final value listener
+rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+    @Override
+    public void finalValue(Number minValue, Number maxValue) {
+        Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+    }
+});
 ```
 ---
 ![alt tag](https://drive.google.com/uc?export=view&id=0B9bDENyIABT6UW04d01ORk1Ob0E)
@@ -312,8 +328,12 @@ __Available attributes__
 + ``data_type`` can be ``_long`` or ``_double`` or ``_integer`` or ``_float`` or ``_short`` or ``_byte``, default ``_integer``
 
 ## Changelog
+
+##### 1.1.1 - 21-Aug-2016
+- Added new feature. ```OnRangeSeekbarFinalValueListener, OnSeekbarFinalValueListener```.
+
 ##### 1.0.1 - 9-Aug-2016
-- Bug fix setMinStartValue and setMaxStartValue programatically.
+- Bug fix setMinStartValue and setMaxStartValue programmatically.
 
 ##### 1.0.0 - 17-July-2016
 - Add New Project.

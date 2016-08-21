@@ -3,6 +3,7 @@ package com.crystal.crystalrangeseekbar.ui.fragments;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.crystal.crystalrangeseekbar.R;
 import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar;
@@ -63,16 +65,24 @@ public class Seekbar extends Fragment {
     private void setRangeSeekbar1(){
 
         // get seekbar from view
-        final CrystalSeekbar rangeSeekbar = (CrystalSeekbar) rootView.findViewById(R.id.rangeSeekbar1);
+        final CrystalSeekbar seekbar = (CrystalSeekbar) rootView.findViewById(R.id.rangeSeekbar1);
 
         // get min and max text view
         final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin1);
 
         // set listener
-        rangeSeekbar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
+        seekbar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue) {
                 tvMin.setText(String.valueOf(minValue));
+            }
+        });
+
+        // set final value listener
+        seekbar.setOnSeekbarFinalValueListener(new OnSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number value) {
+                Log.d("CRS=>", String.valueOf(value));
             }
         });
     }
