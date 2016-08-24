@@ -92,9 +92,9 @@ public class RangeSeekbar extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                rangeSeekbar.setMinStartValue(20).setMaxStartValue(70).apply();
+                rangeSeekbar.setMinValue(6).setMaxValue(30).setMinStartValue(7).setMaxStartValue(10).apply();
             }
-        }, 3000);
+        }, 5000);
     }
 
     private void setRangeSeekbar2(){

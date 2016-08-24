@@ -58,6 +58,8 @@ public class CrystalRangeSeekbar extends View {
 
     private float absoluteMinValue;
     private float absoluteMaxValue;
+    private float absoluteMinStartValue;
+    private float absoluteMaxStartValue;
     private float minValue;
     private float maxValue;
     private float minStartValue;
@@ -224,11 +226,13 @@ public class CrystalRangeSeekbar extends View {
 
     public CrystalRangeSeekbar setMinStartValue(float minStartValue){
         this.minStartValue = minStartValue;
+        this.absoluteMinStartValue = minStartValue;
         return this;
     }
 
     public CrystalRangeSeekbar setMaxStartValue(float maxStartValue){
         this.maxStartValue = maxStartValue;
+        this.absoluteMaxStartValue = maxStartValue;
         return this;
     }
 
@@ -422,12 +426,12 @@ public class CrystalRangeSeekbar extends View {
         barPadding = thumbWidth * 0.5f;
 
         // set min start value
-        if(minStartValue <= minValue){
+        if(minStartValue <= absoluteMinValue){
             minStartValue = 0;
             setNormalizedMinValue(minStartValue);
         }
-        else if(minStartValue >= maxValue){
-            minStartValue = maxValue;
+        else if(minStartValue >= absoluteMaxValue){
+            minStartValue = absoluteMaxValue;
             setMinStartValue();
         }
         else{
@@ -435,12 +439,12 @@ public class CrystalRangeSeekbar extends View {
         }
 
         // set max start value
-        if (maxStartValue <= minStartValue || maxStartValue <= minValue) {
+        if (maxStartValue <= absoluteMinStartValue || maxStartValue <= absoluteMinValue) {
             maxStartValue = 0;
             setNormalizedMaxValue(maxStartValue);
         }
-        else if(maxStartValue >= maxValue){
-            maxStartValue = maxValue;
+        else if(maxStartValue >= absoluteMaxValue){
+            maxStartValue = absoluteMaxValue;
             setMaxStartValue();
         }
         else{
@@ -709,8 +713,8 @@ public class CrystalRangeSeekbar extends View {
     }
 
     private void setMaxStartValue(){
-        if(maxStartValue < maxValue && maxStartValue > minValue && maxStartValue > minStartValue){
-            maxStartValue = Math.max(maxStartValue, absoluteMinValue);
+        if(maxStartValue < absoluteMaxValue && maxStartValue > absoluteMinValue && maxStartValue > absoluteMinStartValue){
+            maxStartValue = Math.max(absoluteMaxStartValue, absoluteMinValue);
             maxStartValue -= absoluteMinValue;
             maxStartValue = maxStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
             setNormalizedMaxValue(maxStartValue);

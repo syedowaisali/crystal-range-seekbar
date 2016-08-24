@@ -329,11 +329,14 @@ __Available attributes__
 
 ## Changelog
 
+##### 1.1.2 - 24-Aug-2016
+- Bug fixed when update property programmatically.
+
 ##### 1.1.1 - 21-Aug-2016
 - Added new feature. ```OnRangeSeekbarFinalValueListener, OnSeekbarFinalValueListener```.
 
 ##### 1.0.1 - 9-Aug-2016
-- Bug fix setMinStartValue and setMaxStartValue programmatically.
+- Bug fixed setMinStartValue and setMaxStartValue programmatically.
 
 ##### 1.0.0 - 17-July-2016
 - Add New Project.
