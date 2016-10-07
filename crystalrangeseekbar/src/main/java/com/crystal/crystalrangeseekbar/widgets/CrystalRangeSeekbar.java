@@ -201,6 +201,8 @@ public class CrystalRangeSeekbar extends View {
 
         setMinStartValue();
         setMaxStartValue();
+
+	setWillNotDraw(false);
     }
 
     //////////////////////////////////////////
