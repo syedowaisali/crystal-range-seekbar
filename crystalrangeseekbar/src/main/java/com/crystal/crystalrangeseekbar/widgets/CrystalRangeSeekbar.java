@@ -416,8 +416,8 @@ public class CrystalRangeSeekbar extends View {
             addFixGap(true);
         }
 
-        thumbWidth  = (leftThumb != null)  ? leftThumb.getWidth()   : getResources().getDimension(R.dimen.thumb_width);
-        thumbHeight = (rightThumb != null) ? rightThumb.getHeight() : getResources().getDimension(R.dimen.thumb_height);
+        thumbWidth  = getThumbWidth();
+        thumbHeight = getThumbHeight();
 
         //thumbHalfWidth = thumbWidth / 2;
         //thumbHalfHeight = thumbHeight / 2;
