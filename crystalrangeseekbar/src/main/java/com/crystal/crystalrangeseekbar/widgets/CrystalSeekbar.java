@@ -172,6 +172,8 @@ public class CrystalSeekbar extends View {
         pressedThumb = null;
 
         setMinStartValue();
+
+	setWillNotDraw(false);
     }
 
     //////////////////////////////////////////
