@@ -361,7 +361,7 @@ public class CrystalRangeSeekbar extends View {
 
     public Number getSelectedMinValue(){
         double nv = normalizedMinValue;
-        if(steps > 0 && steps <= ((absoluteMaxValue) / 2)){
+        if(steps > 0 && steps <= ((Math.abs(absoluteMaxValue)) / 2)){
             float stp = steps / (absoluteMaxValue - absoluteMinValue) * 100;
             double half_step = stp / 2;
             double mod = nv % stp;
@@ -384,7 +384,7 @@ public class CrystalRangeSeekbar extends View {
     public Number getSelectedMaxValue(){
 
         double nv = normalizedMaxValue;
-        if(steps > 0 && steps <= (absoluteMaxValue / 2)){
+        if(steps > 0 && steps <= (Math.abs(absoluteMaxValue) / 2)){
             float stp = steps / (absoluteMaxValue - absoluteMinValue) * 100;
             double half_step = stp / 2;
             double mod = nv % stp;
