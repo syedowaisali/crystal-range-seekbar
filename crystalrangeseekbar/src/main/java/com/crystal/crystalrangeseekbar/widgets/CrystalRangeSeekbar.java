@@ -83,6 +83,8 @@ public class CrystalRangeSeekbar extends View {
     private float barPadding;
     private float barHeight;
     private float thumbWidth;
+    private float thumbDiameter;
+
     //private float thumbHalfWidth;
     //private float thumbHalfHeight;
     private float thumbHeight;
@@ -98,7 +100,6 @@ public class CrystalRangeSeekbar extends View {
     private double normalizedMinValue = 0d;
     private double normalizedMaxValue = 100d;
     private int pointerIndex;
-
     private RectF _rect;
     private Paint _paint;
 
@@ -150,6 +151,7 @@ public class CrystalRangeSeekbar extends View {
             rightDrawable          = getRightDrawable(array);
             leftDrawablePressed    = getLeftDrawablePressed(array);
             rightDrawablePressed   = getRightDrawablePressed(array);
+            thumbDiameter          = getDiameter(array);
             dataType               = getDataType(array);
         }
         finally {
@@ -202,7 +204,7 @@ public class CrystalRangeSeekbar extends View {
         setMinStartValue();
         setMaxStartValue();
 
-	setWillNotDraw(false);
+        setWillNotDraw(false);
     }
 
     //////////////////////////////////////////
@@ -468,13 +470,16 @@ public class CrystalRangeSeekbar extends View {
     }
 
     protected float getThumbWidth(){
-        return (leftThumb != null)  ? leftThumb.getWidth() : getResources().getDimension(R.dimen.thumb_width);
+        return (leftThumb != null)  ? leftThumb.getWidth() : getThumbDiameter();
     }
 
     protected float getThumbHeight(){
-        return (leftThumb != null)  ? leftThumb.getHeight() : getResources().getDimension(R.dimen.thumb_height);
+        return (leftThumb != null)  ? leftThumb.getHeight() : getThumbDiameter();
     }
 
+    protected float getThumbDiameter(){
+        return (thumbDiameter > 0) ? thumbDiameter :  getResources().getDimension(R.dimen.thumb_width);
+    }
     protected float getBarHeight(){
         return (thumbHeight * 0.5f) * 0.3f;
     }
@@ -561,6 +566,10 @@ public class CrystalRangeSeekbar extends View {
 
     protected int getDataType(final TypedArray typedArray){
         return typedArray.getInt(R.styleable.CrystalRangeSeekbar_data_type, DataType.INTEGER);
+    }
+
+    protected float getDiameter(final TypedArray typedArray){
+        return typedArray.getDimensionPixelSize(R.styleable.CrystalRangeSeekbar_thumb_diameter, getResources().getDimensionPixelSize(R.dimen.thumb_height));
     }
 
     protected RectF getLeftThumbRect(){
@@ -1002,3 +1011,4 @@ public class CrystalRangeSeekbar extends View {
 
     }
 }
+
