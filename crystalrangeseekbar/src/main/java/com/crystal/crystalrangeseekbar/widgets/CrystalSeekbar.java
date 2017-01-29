@@ -83,6 +83,7 @@ public class CrystalSeekbar extends View {
     private float barHeight;
     private float thumbWidth;
     private float thumbHeight;
+    private float thumbDiameter;
     private Drawable leftDrawable;
     private Drawable leftDrawablePressed;
     private Bitmap leftThumb;
@@ -139,6 +140,7 @@ public class CrystalSeekbar extends View {
             dataType               = getDataType(array);
             position               = getPosition(array);
             nextPosition           = position;
+            thumbDiameter          = getDiameter(array);
         }
         finally {
             array.recycle();
@@ -339,15 +341,23 @@ public class CrystalSeekbar extends View {
     }
 
     public float getThumbWidth(){
-        return (leftThumb != null)  ? leftThumb.getWidth() : getResources().getDimension(R.dimen.thumb_width);
+        return (leftThumb != null)  ? leftThumb.getWidth() : getThumbDiameter();
     }
 
     public float getThumbHeight(){
-        return (leftThumb != null)  ? leftThumb.getHeight() : getResources().getDimension(R.dimen.thumb_height);
+        return (leftThumb != null)  ? leftThumb.getHeight() : getThumbDiameter();
+    }
+
+     protected float getThumbDiameter(){
+        return (thumbDiameter > 0) ? thumbDiameter :  getResources().getDimension(R.dimen.thumb_width);
     }
 
     public float getBarHeight(){
         return (thumbHeight * 0.5f) * 0.3f;
+    }
+
+    public float getDiameter(final TypedArray typedArray){
+        return typedArray.getDimensionPixelSize(R.styleable.CrystalRangeSeekbar_thumb_diameter, getResources().getDimensionPixelSize(R.dimen.thumb_height));
     }
 
     public float getBarPadding(){

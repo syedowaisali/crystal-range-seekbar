@@ -21,6 +21,7 @@
         <attr name="right_thumb_color_pressed" format="color" />
         <attr name="right_thumb_image" format="reference" />
         <attr name="right_thumb_image_pressed" format="reference" />
+        <attr name="thumb_diameter" format="dimension"/>
         <attr name="position" format="enum">
             <enum name="left" value="0" />
             <enum name="right" value="1" />
