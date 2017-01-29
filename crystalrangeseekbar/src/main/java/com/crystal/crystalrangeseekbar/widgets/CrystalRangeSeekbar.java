@@ -424,7 +424,7 @@ public class CrystalRangeSeekbar extends View {
         //thumbHalfWidth = thumbWidth / 2;
         //thumbHalfHeight = thumbHeight / 2;
 
-        barHeight = (thumbHeight * 0.5f) * 0.3f;
+        barHeight = getBarHeight();
         barPadding = thumbWidth * 0.5f;
 
         // set min start value
