@@ -443,7 +443,7 @@ public class CrystalRangeSeekbar extends View {
         }
 
         // set max start value
-        if (maxStartValue <= absoluteMinStartValue || maxStartValue <= absoluteMinValue) {
+        if (maxStartValue < absoluteMinStartValue || maxStartValue <= absoluteMinValue) {
             maxStartValue = 0;
             setNormalizedMaxValue(maxStartValue);
         }
@@ -714,8 +714,8 @@ public class CrystalRangeSeekbar extends View {
     // PRIVATE METHODS
     //////////////////////////////////////////
 
-    private void setMinStartValue(){
-        if(minStartValue > minValue && minStartValue < maxValue){
+    private void setMinStartValue() {
+        if (minStartValue > minValue && minStartValue <= maxValue) {
             minStartValue = Math.min(minStartValue, absoluteMaxValue);
             minStartValue -= absoluteMinValue;
             minStartValue = minStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
@@ -723,8 +723,8 @@ public class CrystalRangeSeekbar extends View {
         }
     }
 
-    private void setMaxStartValue(){
-        if(maxStartValue < absoluteMaxValue && maxStartValue > absoluteMinValue && maxStartValue > absoluteMinStartValue){
+    private void setMaxStartValue() {
+        if (maxStartValue <= absoluteMaxValue && maxStartValue > absoluteMinValue && maxStartValue >= absoluteMinStartValue) {
             maxStartValue = Math.max(absoluteMaxStartValue, absoluteMinValue);
             maxStartValue -= absoluteMinValue;
             maxStartValue = maxStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
