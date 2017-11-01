@@ -1,18 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Common attributes -->
+    <attr name="corner_radius" format="float" />
+    <attr name="min_value" format="float" />
+    <attr name="max_value" format="float" />
+    <attr name="min_start_value" format="float" />
+    <attr name="max_start_value" format="float" />
+    <attr name="steps" format="float" />
+    <attr name="gap" format="float" />
+    <attr name="fix_gap" format="float" />
+    <attr name="bar_color_mode" format="enum">
+        <enum name="solid" value="0" />
+        <enum name="gradient" value="1" />
+    </attr>
+    <attr name="bar_color" format="color" />
+    <attr name="bar_gradient_start" format="color" />
+    <attr name="bar_gradient_end" format="color" />
+    <attr name="bar_highlight_color_mode" format="enum">
+        <enum name="solid" value="0" />
+        <enum name="gradient" value="1" />
+    </attr>
+    <attr name="bar_highlight_color" format="color" />
+    <attr name="bar_highlight_gradient_start" format="color" />
+    <attr name="bar_highlight_gradient_end" format="color" />
+    <attr name="thumb_diameter" format="dimension"/>
+    <attr name="position" format="enum">
+        <enum name="left" value="0" />
+        <enum name="right" value="1" />
+    </attr>
+    <attr name="data_type" format="enum">
+        <enum name="_long" value="0" />
+        <enum name="_double" value="1" />
+        <enum name="_integer" value="2" />
+        <enum name="_float" value="3" />
+        <enum name="_short" value="4" />
+        <enum name="_byte" value="5" />
+    </attr>
+
+    <!-- Seekbar -->
+    <declare-styleable name="CrystalSeekbar" >
+        <attr name="corner_radius" />
+        <attr name="min_value" />
+        <attr name="max_value" />
+        <attr name="min_start_value" />
+        <attr name="max_start_value" />
+        <attr name="steps" />
+        <attr name="gap" />
+        <attr name="fix_gap" />
+        <attr name="bar_color_mode" />
+        <attr name="bar_color" />
+        <attr name="bar_gradient_start" />
+        <attr name="bar_gradient_end" />
+        <attr name="bar_highlight_color_mode" />
+        <attr name="bar_highlight_color" />
+        <attr name="bar_highlight_gradient_start" />
+        <attr name="bar_highlight_gradient_end" />
+        <attr name="thumb_diameter" />
+        <attr name="position" />
+        <attr name="data_type" />
+        <attr name="thumb_color" format="color" />
+        <attr name="thumb_color_pressed" format="color" />
+        <attr name="thumb_image" format="reference" />
+        <attr name="thumb_image_pressed" format="reference" />
+    </declare-styleable>
+
     <!-- Range Seekbar -->
     <declare-styleable name="CrystalRangeSeekbar" >
-        <attr name="corner_radius" format="float" />
-        <attr name="min_value" format="float" />
-        <attr name="max_value" format="float" />
-        <attr name="min_start_value" format="float" />
-        <attr name="max_start_value" format="float" />
-        <attr name="steps" format="float" />
-        <attr name="gap" format="float" />
-        <attr name="fix_gap" format="float" />
-        <attr name="bar_color" format="color" />
-        <attr name="bar_highlight_color" format="color" />
+        <attr name="corner_radius" />
+        <attr name="min_value" />
+        <attr name="max_value" />
+        <attr name="min_start_value" />
+        <attr name="max_start_value" />
+        <attr name="steps" />
+        <attr name="gap" />
+        <attr name="fix_gap" />
+        <attr name="bar_color_mode" />
+        <attr name="bar_color" />
+        <attr name="bar_gradient_start" />
+        <attr name="bar_gradient_end" />
+        <attr name="bar_highlight_color_mode" />
+        <attr name="bar_highlight_color" />
+        <attr name="bar_highlight_gradient_start" />
+        <attr name="bar_highlight_gradient_end" />
+        <attr name="thumb_diameter" />
+        <attr name="position" />
+        <attr name="data_type" />
         <attr name="left_thumb_color" format="color" />
         <attr name="left_thumb_color_pressed" format="color" />
         <attr name="left_thumb_image" format="reference" />
@@ -21,18 +94,5 @@
         <attr name="right_thumb_color_pressed" format="color" />
         <attr name="right_thumb_image" format="reference" />
         <attr name="right_thumb_image_pressed" format="reference" />
-        <attr name="thumb_diameter" format="dimension"/>
-        <attr name="position" format="enum">
-            <enum name="left" value="0" />
-            <enum name="right" value="1" />
-        </attr>
-        <attr name="data_type" format="enum">
-            <enum name="_long" value="0" />
-            <enum name="_double" value="1" />
-            <enum name="_integer" value="2" />
-            <enum name="_float" value="3" />
-            <enum name="_short" value="4" />
-            <enum name="_byte" value="5" />
-        </attr>
     </declare-styleable>
 </resources>
