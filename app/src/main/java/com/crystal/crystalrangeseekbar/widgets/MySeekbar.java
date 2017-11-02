@@ -63,22 +63,22 @@ public class MySeekbar extends CrystalSeekbar {
     }
 
     @Override
-    protected int getLeftThumbColor(TypedArray typedArray) {
+    protected int getThumbColor(TypedArray typedArray) {
         return Color.parseColor("#058EB7");
     }
 
     @Override
-    protected int getLeftThumbColorPressed(TypedArray typedArray) {
+    protected int getThumbColorPressed(TypedArray typedArray) {
         return Color.parseColor("#046887");
     }
 
     @Override
-    protected Drawable getLeftDrawable(TypedArray typedArray) {
+    protected Drawable getThumbDrawable(TypedArray typedArray) {
         return ContextCompat.getDrawable(getContext(), R.drawable.thumb);
     }
 
     @Override
-    protected Drawable getLeftDrawablePressed(TypedArray typedArray) {
+    protected Drawable getThumbDrawablePressed(TypedArray typedArray) {
         return ContextCompat.getDrawable(getContext(), R.drawable.thumb_pressed);
     }
 
