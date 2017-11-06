@@ -467,7 +467,7 @@ public class CrystalSeekbar extends View {
         barPadding = thumbWidth * 0.5f;
 
         // set min start value
-        if (minStartValue < minValue) {
+        if (minStartValue <= minValue) {
             minStartValue = 0;
             setNormalizedMinValue(minStartValue);
         } else if (minStartValue > maxValue) {
