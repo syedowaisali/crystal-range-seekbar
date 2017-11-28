@@ -313,6 +313,7 @@ __Available attributes__
 + ``max_start_value``: maximum start value must be equal or less than max value, default ``max_value``
 + ``steps``: minimum steps between range, default NO_STEP ``-1f``
 + ``gap``: maintain minimum range between two thumbs, range must be greater >= min value && <= max value, default ``0f``
++ ``bar_height``: bar height, default determined by thumb size
 + ``fix_gap``: maintain fix range between two thumbs, range must be greater >= min value && <= max value, default NO_FIXED_GAP ``-1f``
 + ``bar_color_mode`` color fill mode of inactive bar; can be ``ColorMode.SOLID`` or ``ColorMode.GRADIENT``; default is ``ColorMode.SOLID``
 + ``bar_color`` inactive bar background color, default ``Color.GRAY``

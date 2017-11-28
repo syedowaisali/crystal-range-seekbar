@@ -37,6 +37,7 @@
         <enum name="_short" value="4" />
         <enum name="_byte" value="5" />
     </attr>
+    <attr name="bar_height" format="dimension"/>
 
     <!-- Seekbar -->
     <declare-styleable name="CrystalSeekbar" >
@@ -48,6 +49,7 @@
         <attr name="steps" />
         <attr name="gap" />
         <attr name="fix_gap" />
+        <attr name="bar_height" />
         <attr name="bar_color_mode" />
         <attr name="bar_color" />
         <attr name="bar_gradient_start" />
@@ -75,6 +77,7 @@
         <attr name="steps" />
         <attr name="gap" />
         <attr name="fix_gap" />
+        <attr name="bar_height"/>
         <attr name="bar_color_mode" />
         <attr name="bar_color" />
         <attr name="bar_gradient_start" />
