@@ -95,6 +95,7 @@ public class CrystalRangeSeekbar extends View {
     private int rightThumbColorPressed;
     private float barPadding;
     private float barHeight;
+    private float _barHeight;
     private float thumbWidth;
     private float thumbDiameter;
 
@@ -154,6 +155,7 @@ public class CrystalRangeSeekbar extends View {
             steps                  = getSteps(array);
             gap                    = getGap(array);
             fixGap                 = getFixedGap(array);
+            _barHeight             = getBarHeight(array);
             barColorMode           = getBarColorMode(array);
             barColor               = getBarColor(array);
             barGradientStart       = getBarGradientStart(array);
@@ -271,6 +273,11 @@ public class CrystalRangeSeekbar extends View {
 
     public CrystalRangeSeekbar setFixGap(float fixGap){
         this.fixGap = fixGap;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarHeight(float height) {
+        _barHeight = height;
         return this;
     }
 
@@ -530,7 +537,7 @@ public class CrystalRangeSeekbar extends View {
         return (thumbDiameter > 0) ? thumbDiameter :  getResources().getDimension(R.dimen.thumb_width);
     }
     protected float getBarHeight(){
-        return (thumbHeight * 0.5f) * 0.3f;
+        return _barHeight > 0 ? _barHeight : (thumbHeight * 0.5f) * 0.3f;
     }
 
     protected float getBarPadding(){
@@ -575,6 +582,10 @@ public class CrystalRangeSeekbar extends View {
 
     protected int getBarColorMode(final TypedArray typedArray) {
         return typedArray.getInt(R.styleable.CrystalRangeSeekbar_bar_color_mode, CrystalSeekbar.ColorMode.SOLID);
+    }
+
+    protected float getBarHeight(final TypedArray typedArray){
+        return typedArray.getDimensionPixelSize(R.styleable.CrystalRangeSeekbar_bar_height, 0);
     }
 
     protected int getBarColor(final TypedArray typedArray) {
