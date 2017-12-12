@@ -341,6 +341,55 @@
 
             </RelativeLayout>
 
+            <!-- seekbar option 9 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:clipChildren="false">
+
+                <com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
+                    android:id="@+id/rangeSeekbar9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:min_value="100"
+                    app:max_value="200"
+                    app:steps="5"
+                    app:bar_color_mode="gradient"
+                    app:bar_highlight_color_mode="gradient"
+                    app:bar_highlight_gradient_start="#E07416"
+                    app:bar_highlight_gradient_end="#310049"
+                    app:bar_gradient_start="#0015CC"
+                    app:bar_gradient_end="#CCBD00"
+                    app:left_thumb_image="@drawable/thumb"
+                    app:left_thumb_image_pressed="@drawable/thumb_pressed"
+                    app:data_type="_integer"/>
+
+                <TextView
+                    android:id="@+id/textMax9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:layout_below="@id/rangeSeekbar9"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16dp"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/textMin9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:layout_below="@id/rangeSeekbar9"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>

@@ -5,8 +5,10 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
@@ -49,6 +51,11 @@ public class CrystalRangeSeekbar extends View {
         public static final int BYTE        = 5;
     }
 
+    public static final class ColorMode {
+        public static final int SOLID = 0;
+        public static final int GRADIENT = 1;
+    }
+
     //////////////////////////////////////////
     // PRIVATE VAR
     //////////////////////////////////////////
@@ -72,8 +79,14 @@ public class CrystalRangeSeekbar extends View {
 
     private int dataType;
     private float cornerRadius;
+    private int barColorMode;
     private int barColor;
+    private int barGradientStart;
+    private int barGradientEnd;
+    private int barHighlightColorMode;
     private int barHighlightColor;
+    private int barHighlightGradientStart;
+    private int barHighlightGradientEnd;
     private int leftThumbColor;
     private int rightThumbColor;
     private int leftThumbColorNormal;
@@ -82,6 +95,7 @@ public class CrystalRangeSeekbar extends View {
     private int rightThumbColorPressed;
     private float barPadding;
     private float barHeight;
+    private float _barHeight;
     private float thumbWidth;
     private float thumbDiameter;
 
@@ -141,8 +155,15 @@ public class CrystalRangeSeekbar extends View {
             steps                  = getSteps(array);
             gap                    = getGap(array);
             fixGap                 = getFixedGap(array);
+            _barHeight             = getBarHeight(array);
+            barColorMode           = getBarColorMode(array);
             barColor               = getBarColor(array);
+            barGradientStart       = getBarGradientStart(array);
+            barGradientEnd         = getBarGradientEnd(array);
+            barHighlightColorMode  = getBarHighlightColorMode(array);
             barHighlightColor      = getBarHighlightColor(array);
+            barHighlightGradientStart = getBarHighlightGradientStart(array);
+            barHighlightGradientEnd = getBarHighlightGradientEnd(array);
             leftThumbColorNormal   = getLeftThumbColor(array);
             rightThumbColorNormal  = getRightThumbColor(array);
             leftThumbColorPressed  = getLeftThumbColorPressed(array);
@@ -255,13 +276,48 @@ public class CrystalRangeSeekbar extends View {
         return this;
     }
 
-    public CrystalRangeSeekbar setBarColor(int barColor){
+    public CrystalRangeSeekbar setBarHeight(float height) {
+        _barHeight = height;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarColorMode(int barColorMode) {
+        this.barColorMode = barColorMode;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarColor(int barColor) {
         this.barColor = barColor;
         return this;
     }
 
-    public CrystalRangeSeekbar setBarHighlightColor(int barHighlightColor){
+    public CrystalRangeSeekbar setBarGradientStart(int barGradientStart) {
+        this.barGradientStart = barGradientStart;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarGradientEnd(int barGradientEnd) {
+        this.barGradientEnd = barGradientEnd;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarHighlightColorMode(int barHighlightColorMode) {
+        this.barHighlightColorMode = barHighlightColorMode;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarHighlightColor(int barHighlightColor) {
         this.barHighlightColor = barHighlightColor;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarHighlightGradientStart(int barHighlightGradientStart) {
+        this.barHighlightGradientStart = barHighlightGradientStart;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setBarHighlightGradientEnd(int barHighlightGradientEnd) {
+        this.barHighlightGradientEnd = barHighlightGradientEnd;
         return this;
     }
 
@@ -443,7 +499,7 @@ public class CrystalRangeSeekbar extends View {
         }
 
         // set max start value
-        if (maxStartValue <= absoluteMinStartValue || maxStartValue <= absoluteMinValue) {
+        if (maxStartValue < absoluteMinStartValue || maxStartValue <= absoluteMinValue) {
             maxStartValue = 0;
             setNormalizedMaxValue(maxStartValue);
         }
@@ -481,7 +537,7 @@ public class CrystalRangeSeekbar extends View {
         return (thumbDiameter > 0) ? thumbDiameter :  getResources().getDimension(R.dimen.thumb_width);
     }
     protected float getBarHeight(){
-        return (thumbHeight * 0.5f) * 0.3f;
+        return _barHeight > 0 ? _barHeight : (thumbHeight * 0.5f) * 0.3f;
     }
 
     protected float getBarPadding(){
@@ -524,12 +580,40 @@ public class CrystalRangeSeekbar extends View {
         return typedArray.getFloat(R.styleable.CrystalRangeSeekbar_fix_gap, NO_FIXED_GAP);
     }
 
-    protected int getBarColor(final TypedArray typedArray){
+    protected int getBarColorMode(final TypedArray typedArray) {
+        return typedArray.getInt(R.styleable.CrystalRangeSeekbar_bar_color_mode, CrystalSeekbar.ColorMode.SOLID);
+    }
+
+    protected float getBarHeight(final TypedArray typedArray){
+        return typedArray.getDimensionPixelSize(R.styleable.CrystalRangeSeekbar_bar_height, 0);
+    }
+
+    protected int getBarColor(final TypedArray typedArray) {
         return typedArray.getColor(R.styleable.CrystalRangeSeekbar_bar_color, Color.GRAY);
     }
 
-    protected int getBarHighlightColor(final TypedArray typedArray){
+    protected int getBarGradientStart(final TypedArray typedArray) {
+        return typedArray.getColor(R.styleable.CrystalRangeSeekbar_bar_gradient_start, Color.GRAY);
+    }
+
+    protected int getBarGradientEnd(final TypedArray typedArray) {
+        return typedArray.getColor(R.styleable.CrystalRangeSeekbar_bar_gradient_end, Color.DKGRAY);
+    }
+
+    protected int getBarHighlightColorMode(final TypedArray typedArray) {
+        return typedArray.getInt(R.styleable.CrystalRangeSeekbar_bar_highlight_color_mode, CrystalSeekbar.ColorMode.SOLID);
+    }
+
+    protected int getBarHighlightColor(final TypedArray typedArray) {
         return typedArray.getColor(R.styleable.CrystalRangeSeekbar_bar_highlight_color, Color.BLACK);
+    }
+
+    protected int getBarHighlightGradientStart(final TypedArray typedArray) {
+        return typedArray.getColor(R.styleable.CrystalRangeSeekbar_bar_highlight_gradient_start, Color.DKGRAY);
+    }
+
+    protected int getBarHighlightGradientEnd(final TypedArray typedArray) {
+        return typedArray.getColor(R.styleable.CrystalRangeSeekbar_bar_highlight_gradient_end, Color.BLACK);
     }
 
     protected int getLeftThumbColor(final TypedArray typedArray){
@@ -587,9 +671,24 @@ public class CrystalRangeSeekbar extends View {
         rect.bottom = 0.5f * (getHeight() + barHeight);
 
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(barColor);
         paint.setAntiAlias(true);
-        drawBar(canvas, paint, rect);
+
+        if (barColorMode == CrystalSeekbar.ColorMode.SOLID) {
+            paint.setColor(barColor);
+            drawBar(canvas, paint, rect);
+
+        } else {
+            paint.setShader(
+                    new LinearGradient(rect.left, rect.bottom, rect.right, rect.top,
+                            barGradientStart,
+                            barGradientEnd,
+                            Shader.TileMode.MIRROR)
+            );
+
+            drawBar(canvas, paint, rect);
+
+            paint.setShader(null);
+        }
     }
 
     protected void drawBar(final Canvas canvas, final Paint paint, final RectF rect){
@@ -599,8 +698,26 @@ public class CrystalRangeSeekbar extends View {
     protected void setupHighlightBar(final Canvas canvas, final Paint paint, final RectF rect){
         rect.left = normalizedToScreen(normalizedMinValue) + (getThumbWidth() / 2);
         rect.right = normalizedToScreen(normalizedMaxValue) + (getThumbWidth() / 2);
-        paint.setColor(barHighlightColor);
-        drawHighlightBar(canvas, paint, rect);
+
+        paint.setStyle(Paint.Style.FILL);
+        paint.setAntiAlias(true);
+
+        if (barHighlightColorMode == CrystalSeekbar.ColorMode.SOLID) {
+            paint.setColor(barHighlightColor);
+            drawHighlightBar(canvas, paint, rect);
+
+        } else {
+            paint.setShader(
+                    new LinearGradient(rect.left, rect.bottom, rect.right, rect.top,
+                            barHighlightGradientStart,
+                            barHighlightGradientEnd,
+                            Shader.TileMode.MIRROR)
+            );
+
+            drawHighlightBar(canvas, paint, rect);
+
+            paint.setShader(null);
+        }
     }
 
     protected void drawHighlightBar(final Canvas canvas, final Paint paint, final RectF rect){
@@ -714,8 +831,8 @@ public class CrystalRangeSeekbar extends View {
     // PRIVATE METHODS
     //////////////////////////////////////////
 
-    private void setMinStartValue(){
-        if(minStartValue > minValue && minStartValue < maxValue){
+    private void setMinStartValue() {
+        if (minStartValue > minValue && minStartValue <= maxValue) {
             minStartValue = Math.min(minStartValue, absoluteMaxValue);
             minStartValue -= absoluteMinValue;
             minStartValue = minStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
@@ -723,8 +840,8 @@ public class CrystalRangeSeekbar extends View {
         }
     }
 
-    private void setMaxStartValue(){
-        if(maxStartValue < absoluteMaxValue && maxStartValue > absoluteMinValue && maxStartValue > absoluteMinStartValue){
+    private void setMaxStartValue() {
+        if (maxStartValue <= absoluteMaxValue && maxStartValue > absoluteMinValue && maxStartValue >= absoluteMinStartValue) {
             maxStartValue = Math.max(absoluteMaxStartValue, absoluteMinValue);
             maxStartValue -= absoluteMinValue;
             maxStartValue = maxStartValue / (absoluteMaxValue - absoluteMinValue) * 100;

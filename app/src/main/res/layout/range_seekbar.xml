@@ -356,6 +356,52 @@
 
             </RelativeLayout>
 
+            <!-- seekbar option 9 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                    android:id="@+id/rangeSeekbar9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:corner_radius="10"
+                    app:min_value="0"
+                    app:max_value="100"
+                    app:bar_color_mode="gradient"
+                    app:bar_gradient_start="#EE88F7"
+                    app:bar_gradient_end="#29CBCC"
+                    app:bar_highlight_color_mode="gradient"
+                    app:bar_highlight_gradient_end="#D810EA"
+                    app:bar_highlight_gradient_start  ="#0FCC44"
+                    app:data_type="_integer"/>
+
+                <TextView
+                    android:id="@+id/textMin9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_below="@id/rangeSeekbar9"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="16dp"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:id="@+id/textMax9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_below="@id/rangeSeekbar9"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="16dp"
+                    android:textColor="#000"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>

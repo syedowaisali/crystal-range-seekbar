@@ -92,8 +92,8 @@ public class BubbleThumbSeekbar extends CrystalSeekbar {
             if(! animate){
                 rect.left   = rect.left - ((getBubbleWith() / 2) - (getThumbWidth() / 2));
                 rect.right  = rect.left + getBubbleWith();
-                rect.top    = getLeftThumbRect().top - ((getBubbleHeight() / 2) - (getThumbHeight() / 2));
-                rect.bottom = getLeftThumbRect().bottom + ((getBubbleHeight() / 2) - (getThumbHeight() / 2));
+                rect.top    = getThumbRect().top - ((getBubbleHeight() / 2) - (getThumbHeight() / 2));
+                rect.bottom = getThumbRect().bottom + ((getBubbleHeight() / 2) - (getThumbHeight() / 2));
             }
             else{
 
@@ -116,7 +116,7 @@ public class BubbleThumbSeekbar extends CrystalSeekbar {
 
             if(! animate){
                 image = resizeImage((int) getBubbleWith(), (int) getBubbleHeight(), image);
-                rect.top = getLeftThumbRect().top - ((getBubbleHeight() / 2) - (getThumbHeight() / 2));
+                rect.top = getThumbRect().top - ((getBubbleHeight() / 2) - (getThumbHeight() / 2));
                 rect.left = rect.left - ((getBubbleWith() / 2) - (getThumbWidth() / 2));
             }
             else{
@@ -147,7 +147,7 @@ public class BubbleThumbSeekbar extends CrystalSeekbar {
     protected void startAnimationUp(){
 
         BubbleRect toRect = new BubbleRect();
-        RectF fromRect = getLeftThumbRect();
+        RectF fromRect = getThumbRect();
 
         toRect.left        = fromRect.left - ((getBubbleWith() / 2) - (getThumbWidth() / 2));
         toRect.right       = toRect.left + getBubbleWith();
@@ -189,7 +189,7 @@ public class BubbleThumbSeekbar extends CrystalSeekbar {
     protected void startAnimationDown(){
 
         RectF toRect = new RectF();
-        RectF fromRect = getLeftThumbRect();
+        RectF fromRect = getThumbRect();
 
         toRect.left   = fromRect.left + ((getBubbleWith() / 2) - (getThumbWidth() / 2));
         toRect.right  = toRect.left + getThumbWidth();

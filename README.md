@@ -12,7 +12,7 @@ An extended version of seekbar and range seekbar with basic and advanced customi
 Add a dependency to your `build.gradle`:
 ```groovy
 dependencies {
-    compile 'com.crystal:crystalrangeseekbar:1.1.1'
+    compile 'com.crystal:crystalrangeseekbar:1.1.3'
 }
 ```
 
@@ -313,17 +313,28 @@ __Available attributes__
 + ``max_start_value``: maximum start value must be equal or less than max value, default ``max_value``
 + ``steps``: minimum steps between range, default NO_STEP ``-1f``
 + ``gap``: maintain minimum range between two thumbs, range must be greater >= min value && <= max value, default ``0f``
++ ``bar_height``: bar height, default determined by thumb size
 + ``fix_gap``: maintain fix range between two thumbs, range must be greater >= min value && <= max value, default NO_FIXED_GAP ``-1f``
++ ``bar_color_mode`` color fill mode of inactive bar; can be ``ColorMode.SOLID`` or ``ColorMode.GRADIENT``; default is ``ColorMode.SOLID``
 + ``bar_color`` inactive bar background color, default ``Color.GRAY``
++ ``bar_gradient_start`` inactive bar background gradient start color, default ``Color.GRAY``
++ ``bar_gradient_end`` inactive bar background gradient end color, default ``Color.DKGRAY``
++ ``bar_highlight_color_mode`` color fill mode of active bar; can be ``ColorMode.SOLID`` or ``ColorMode.GRADIENT``; default is ``ColorMode.SOLID``
 + ``bar_highlight_color`` active bar background color, default ``Color.BLACK``
-+ ``left_thumb_color`` default left thumb color, default ``Color.BLACK``
-+ ``left_thumb_color_pressed`` active left thumb color, default ``Color.DKGRAY``
-+ ``left_thumb_image`` left thumb drawable, default ``null``
-+ ``left_thumb_image_pressed`` active left thumb drawable, default ``null``
-+ ``right_thumb_color`` default right thumb color, default ``Color.BLACK``
-+ ``right_thumb_color_pressed`` active right thumb color, default ``Color.DKGRAY``
-+ ``right_thumb_image`` right thumb drawable, default ``null``
-+ ``right_thumb_image_pressed`` active right thumb drawable, default ``null``
++ ``bar_highlight_gradient_start`` active bar background gradient start color, default ``Color.DKGRAY``
++ ``bar_highlight_gradient_end`` active bar background gradient end color, default ``Color.BLACK``
++ ``thumb_color`` default thumb color, default ``Color.BLACK`` **(only CrystalSeekbar)**
++ ``thumb_color_pressed`` active thumb color, default ``Color.DKGRAY`` **(only CrystalSeekbar)**
++ ``thumb_image`` left drawable, default ``null`` **(only CrystalSeekbar)**
++ ``thumb_image_pressed`` active thumb drawable, default ``null`` **(only CrystalSeekbar)**
++ ``left_thumb_color`` default left thumb color, default ``Color.BLACK`` **(only CrystalRangeSeekbar)**
++ ``left_thumb_color_pressed`` active left thumb color, default ``Color.DKGRAY`` **(only CrystalRangeSeekbar)**
++ ``left_thumb_image`` left thumb drawable, default ``null`` **(only CrystalRangeSeekbar)**
++ ``left_thumb_image_pressed`` active left thumb drawable, default ``null`` **(only CrystalRangeSeekbar)**
++ ``right_thumb_color`` default right thumb color, default ``Color.BLACK`` **(only CrystalRangeSeekbar)**
++ ``right_thumb_color_pressed`` active right thumb color, default ``Color.DKGRAY`` **(only CrystalRangeSeekbar)**
++ ``right_thumb_image`` right thumb drawable, default ``null`` **(only CrystalRangeSeekbar)**
++ ``right_thumb_image_pressed`` active right thumb drawable, default ``null`` **(only CrystalRangeSeekbar)**
 + ``position`` can be ``left`` or ``right``, default ``left``
 + ``data_type`` can be ``_long`` or ``_double`` or ``_integer`` or ``_float`` or ``_short`` or ``_byte``, default ``_integer``
 
@@ -358,3 +369,4 @@ limitations under the License.
 ##Authors
 
 * [Syed Owais Ali](https://github.com/syedowaisali) *original Author*
+* [Balazs Rozsenich](https://github.com/m3dw3)
