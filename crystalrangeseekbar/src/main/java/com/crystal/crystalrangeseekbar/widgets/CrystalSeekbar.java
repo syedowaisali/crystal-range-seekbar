@@ -54,7 +54,7 @@ public class CrystalSeekbar extends View {
         public static final int LEFT = 0;
         public static final int RIGHT = 1;
     }
-    
+
     public static final class ColorMode {
         public static final int SOLID = 0;
         public static final int GRADIENT = 1;
@@ -92,6 +92,7 @@ public class CrystalSeekbar extends View {
     private int thumbColor;
     private int thumbColorNormal;
     private int thumbColorPressed;
+    private boolean seekBarTouchEnabled;
     private float barPadding;
     private float _barHeight;
     private float barHeight;
@@ -162,6 +163,7 @@ public class CrystalSeekbar extends View {
             position = getPosition(array);
             nextPosition = position;
             thumbDiameter = getDiameter(array);
+            seekBarTouchEnabled = isSeekBarTouchEnabled(array);
         } finally {
             array.recycle();
         }
@@ -415,6 +417,10 @@ public class CrystalSeekbar extends View {
         return typedArray.getDimensionPixelSize(R.styleable.CrystalSeekbar_thumb_diameter, getResources().getDimensionPixelSize(R.dimen.thumb_height));
     }
 
+    protected boolean isSeekBarTouchEnabled(final TypedArray typedArray){
+        return typedArray.getBoolean(R.styleable.CrystalSeekbar_seek_bar_touch_enabled, false);
+    }
+
     public float getBarPadding() {
         return thumbWidth * 0.5f;
     }
@@ -537,7 +543,7 @@ public class CrystalSeekbar extends View {
     protected int getBarColorMode(final TypedArray typedArray) {
         return typedArray.getInt(R.styleable.CrystalSeekbar_bar_color_mode, ColorMode.SOLID);
     }
-    
+
     protected int getBarColor(final TypedArray typedArray) {
         return typedArray.getColor(R.styleable.CrystalSeekbar_bar_color, Color.GRAY);
     }
@@ -746,7 +752,7 @@ public class CrystalSeekbar extends View {
         Thumb result = null;
 
         boolean minThumbPressed = isInThumbRange(touchX, normalizedMinValue);
-        if (minThumbPressed) {
+        if (seekBarTouchEnabled || minThumbPressed) {
             // if both thumbs are pressed (they lie on top of each other), choose the one with more room to drag. this avoids "stalling" the thumbs in a corner, not being able to drag them apart anymore.
             result = Thumb.MIN;
         }
