@@ -38,6 +38,7 @@
         <enum name="_byte" value="5" />
     </attr>
     <attr name="bar_height" format="dimension"/>
+    <attr name="seek_bar_touch_enabled" format="boolean" />
 
     <!-- Seekbar -->
     <declare-styleable name="CrystalSeekbar" >
@@ -65,6 +66,7 @@
         <attr name="thumb_color_pressed" format="color" />
         <attr name="thumb_image" format="reference" />
         <attr name="thumb_image_pressed" format="reference" />
+        <attr name="seek_bar_touch_enabled" />
     </declare-styleable>
 
     <!-- Range Seekbar -->
@@ -97,5 +99,6 @@
         <attr name="right_thumb_color_pressed" format="color" />
         <attr name="right_thumb_image" format="reference" />
         <attr name="right_thumb_image_pressed" format="reference" />
+        <attr name="seek_bar_touch_enabled" />
     </declare-styleable>
 </resources>

@@ -93,6 +93,7 @@ public class CrystalRangeSeekbar extends View {
     private int leftThumbColorPressed;
     private int rightThumbColorNormal;
     private int rightThumbColorPressed;
+    private boolean seekBarTouchEnabled;
     private float barPadding;
     private float barHeight;
     private float _barHeight;
@@ -174,6 +175,7 @@ public class CrystalRangeSeekbar extends View {
             rightDrawablePressed   = getRightDrawablePressed(array);
             thumbDiameter          = getDiameter(array);
             dataType               = getDataType(array);
+            seekBarTouchEnabled    = isSeekBarTouchEnabled(array);
         }
         finally {
             array.recycle();
@@ -652,6 +654,10 @@ public class CrystalRangeSeekbar extends View {
         return typedArray.getInt(R.styleable.CrystalRangeSeekbar_data_type, DataType.INTEGER);
     }
 
+    protected boolean isSeekBarTouchEnabled(final TypedArray typedArray){
+        return typedArray.getBoolean(R.styleable.CrystalRangeSeekbar_seek_bar_touch_enabled, false);
+    }
+
     protected float getDiameter(final TypedArray typedArray){
         return typedArray.getDimensionPixelSize(R.styleable.CrystalRangeSeekbar_thumb_diameter, getResources().getDimensionPixelSize(R.dimen.thumb_height));
     }
@@ -864,6 +870,10 @@ public class CrystalRangeSeekbar extends View {
         else if(maxThumbPressed){
             result = Thumb.MAX;
         }
+
+        if (seekBarTouchEnabled && result == null) {
+            result = findClosestThumb(touchX);
+        }
         return result;
     }
 
@@ -875,6 +885,20 @@ public class CrystalRangeSeekbar extends View {
         if(thumbPos > (getWidth() - thumbWidth)) x = touchX;
         return (x >= left && x <= right);
         //return Math.abs(touchX - normalizedToScreen(normalizedThumbValue)) <= thumbWidth;
+    }
+
+    private Thumb findClosestThumb(float touchX) {
+        float screenMinX = normalizedToScreen(normalizedMinValue);
+        float screenMaxX = normalizedToScreen(normalizedMaxValue);
+        if (touchX >= screenMaxX) {
+            return Thumb.MAX;
+        } else if (touchX <= screenMinX) {
+            return Thumb.MIN;
+        }
+
+        double minDiff = Math.abs(screenMinX - touchX);
+        double maxDiff = Math.abs(screenMaxX - touchX);
+        return minDiff < maxDiff ? Thumb.MIN : Thumb.MAX;
     }
 
     private void onStartTrackingTouch(){
