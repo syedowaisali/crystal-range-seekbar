@@ -62,11 +62,7 @@ public class CrystalRangeSeekbar extends View {
 
     private OnRangeSeekbarChangeListener onRangeSeekbarChangeListener;
     private OnRangeSeekbarFinalValueListener onRangeSeekbarFinalValueListener;
-
-    private float absoluteMinValue;
-    private float absoluteMaxValue;
-    private float absoluteMinStartValue;
-    private float absoluteMaxStartValue;
+    
     private float minValue;
     private float maxValue;
     private float minStartValue;
@@ -189,8 +185,6 @@ public class CrystalRangeSeekbar extends View {
     //////////////////////////////////////////
 
     protected void init(){
-        absoluteMinValue = minValue;
-        absoluteMaxValue = maxValue;
         leftThumbColor = leftThumbColorNormal;
         rightThumbColor = rightThumbColorNormal;
         leftThumb = getBitmap(leftDrawable);
@@ -200,11 +194,11 @@ public class CrystalRangeSeekbar extends View {
         leftThumbPressed = (leftThumbPressed == null) ? leftThumb : leftThumbPressed;
         rightThumbPressed = (rightThumbPressed == null) ? rightThumb : rightThumbPressed;
 
-        gap = Math.max(0, Math.min(gap, absoluteMaxValue - absoluteMinValue));
-        gap = gap / (absoluteMaxValue - absoluteMinValue) * 100;
+        gap = Math.max(0, Math.min(gap, maxValue - minValue));
+        gap = gap / (maxValue - minValue) * 100;
         if(fixGap != NO_FIXED_GAP){
-            fixGap = Math.min(fixGap, absoluteMaxValue);
-            fixGap = fixGap / (absoluteMaxValue - absoluteMinValue) * 100;
+            fixGap = Math.min(fixGap, maxValue);
+            fixGap = fixGap / (maxValue - minValue) * 100;
             addFixGap(true);
         }
 
@@ -241,25 +235,21 @@ public class CrystalRangeSeekbar extends View {
 
     public CrystalRangeSeekbar setMinValue(float minValue){
         this.minValue = minValue;
-        this.absoluteMinValue = minValue;
         return this;
     }
 
     public CrystalRangeSeekbar setMaxValue(float maxValue){
         this.maxValue = maxValue;
-        this.absoluteMaxValue = maxValue;
         return this;
     }
 
     public CrystalRangeSeekbar setMinStartValue(float minStartValue){
         this.minStartValue = minStartValue;
-        this.absoluteMinStartValue = minStartValue;
         return this;
     }
 
     public CrystalRangeSeekbar setMaxStartValue(float maxStartValue){
         this.maxStartValue = maxStartValue;
-        this.absoluteMaxStartValue = maxStartValue;
         return this;
     }
 
@@ -421,8 +411,8 @@ public class CrystalRangeSeekbar extends View {
 
     public Number getSelectedMinValue(){
         double nv = normalizedMinValue;
-        if(steps > 0 && steps <= ((Math.abs(absoluteMaxValue)) / 2)){
-            float stp = steps / (absoluteMaxValue - absoluteMinValue) * 100;
+        if(steps > 0 && steps <= ((Math.abs(maxValue)) / 2)){
+            float stp = steps / (maxValue - minValue) * 100;
             double half_step = stp / 2;
             double mod = nv % stp;
             if(mod > half_step){
@@ -444,8 +434,8 @@ public class CrystalRangeSeekbar extends View {
     public Number getSelectedMaxValue(){
 
         double nv = normalizedMaxValue;
-        if(steps > 0 && steps <= (Math.abs(absoluteMaxValue) / 2)){
-            float stp = steps / (absoluteMaxValue - absoluteMinValue) * 100;
+        if(steps > 0 && steps <= (Math.abs(maxValue) / 2)){
+            float stp = steps / (maxValue - minValue) * 100;
             double half_step = stp / 2;
             double mod = nv % stp;
             if(mod > half_step){
@@ -470,11 +460,11 @@ public class CrystalRangeSeekbar extends View {
         normalizedMinValue = 0d;
         normalizedMaxValue = 100d;
 
-        gap = Math.max(0, Math.min(gap, absoluteMaxValue - absoluteMinValue));
-        gap = gap / (absoluteMaxValue - absoluteMinValue) * 100;
+        gap = Math.max(0, Math.min(gap, maxValue - minValue));
+        gap = gap / (maxValue - minValue) * 100;
         if(fixGap != NO_FIXED_GAP){
-            fixGap = Math.min(fixGap, absoluteMaxValue);
-            fixGap = fixGap / (absoluteMaxValue - absoluteMinValue) * 100;
+            fixGap = Math.min(fixGap, maxValue);
+            fixGap = fixGap / (maxValue - minValue) * 100;
             addFixGap(true);
         }
 
@@ -488,12 +478,12 @@ public class CrystalRangeSeekbar extends View {
         barPadding = thumbWidth * 0.5f;
 
         // set min start value
-        if(minStartValue <= absoluteMinValue){
+        if(minStartValue <= minValue){
             minStartValue = 0;
             setNormalizedMinValue(minStartValue);
         }
-        else if(minStartValue >= absoluteMaxValue){
-            minStartValue = absoluteMaxValue;
+        else if(minStartValue >= maxValue){
+            minStartValue = maxValue;
             setMinStartValue();
         }
         else{
@@ -501,12 +491,12 @@ public class CrystalRangeSeekbar extends View {
         }
 
         // set max start value
-        if (maxStartValue < absoluteMinStartValue || maxStartValue <= absoluteMinValue) {
+        if (maxStartValue < minStartValue || maxStartValue <= minValue) {
             maxStartValue = 0;
             setNormalizedMaxValue(maxStartValue);
         }
-        else if(maxStartValue >= absoluteMaxValue){
-            maxStartValue = absoluteMaxValue;
+        else if(maxStartValue >= maxValue){
+            maxStartValue = maxValue;
             setMaxStartValue();
         }
         else{
@@ -839,18 +829,18 @@ public class CrystalRangeSeekbar extends View {
 
     private void setMinStartValue() {
         if (minStartValue > minValue && minStartValue <= maxValue) {
-            minStartValue = Math.min(minStartValue, absoluteMaxValue);
-            minStartValue -= absoluteMinValue;
-            minStartValue = minStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
+            minStartValue = Math.min(minStartValue, maxValue);
+            minStartValue -= minValue;
+            minStartValue = minStartValue / (maxValue - minValue) * 100;
             setNormalizedMinValue(minStartValue);
         }
     }
 
     private void setMaxStartValue() {
-        if (maxStartValue <= absoluteMaxValue && maxStartValue > absoluteMinValue && maxStartValue >= absoluteMinStartValue) {
-            maxStartValue = Math.max(absoluteMaxStartValue, absoluteMinValue);
-            maxStartValue -= absoluteMinValue;
-            maxStartValue = maxStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
+        if (maxStartValue <= maxValue && maxStartValue > minValue && maxStartValue >= minStartValue) {
+            maxStartValue = Math.max(maxStartValue, minValue);
+            maxStartValue -= minValue;
+            maxStartValue = maxStartValue / (maxValue - minValue) * 100;
             setNormalizedMaxValue(maxStartValue);
         }
     }
