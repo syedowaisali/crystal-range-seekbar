@@ -61,6 +61,7 @@ public class RangeSeekbar extends Fragment {
         setRangeSeekbar6();
         setRangeSeekbar7();
         setRangeSeekbar8();
+        setRangeSeekbar9();
     }
 
     private void setRangeSeekbar1(){
@@ -238,6 +239,25 @@ public class RangeSeekbar extends Fragment {
         // get min and max text view
         final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin8);
         final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax8);
+
+        // set listener
+        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+            }
+        });
+    }
+
+    private void setRangeSeekbar9(){
+
+        // get seekbar from view
+        final CrystalRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar9);
+
+        // get min and max text view
+        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin9);
+        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax9);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
