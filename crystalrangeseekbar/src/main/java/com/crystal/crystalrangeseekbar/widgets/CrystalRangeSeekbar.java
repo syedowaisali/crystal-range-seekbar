@@ -9,16 +9,12 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
@@ -28,7 +24,7 @@ import com.example.crystalrangeseekbar.R;
 /**
  * Created by owais.ali on 6/20/2016.
  */
-public class CrystalRangeSeekbar extends View {
+public class CrystalRangeSeekbar extends Seekbar {
 
     //////////////////////////////////////////
     // PRIVATE CONSTANTS
@@ -547,24 +543,6 @@ public class CrystalRangeSeekbar extends View {
 
     protected float getBarPadding(){
         return thumbWidth * 0.5f;
-    }
-
-    protected Bitmap getBitmap(Drawable drawable) {
-        if (drawable != null) {
-            if (drawable instanceof BitmapDrawable) {
-                return ((BitmapDrawable) drawable).getBitmap();
-            } else if (drawable instanceof VectorDrawableCompat || drawable instanceof VectorDrawable) {
-                Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(bitmap);
-                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-                drawable.draw(canvas);
-
-                return bitmap;
-            } else {
-                throw new IllegalArgumentException("unsupported drawable type");
-            }
-        }
-        return null;
     }
 
     protected float getCornerRadius(final TypedArray typedArray){

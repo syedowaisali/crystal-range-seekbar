@@ -9,13 +9,12 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarFinalValueListener;
@@ -25,7 +24,7 @@ import com.example.crystalrangeseekbar.R;
 /**
  * Created by owais.ali on 6/20/2016.
  */
-public class CrystalSeekbar extends View {
+public class CrystalSeekbar extends Seekbar {
 
     //////////////////////////////////////////
     // PRIVATE CONSTANTS
@@ -512,10 +511,6 @@ public class CrystalSeekbar extends View {
     // PROTECTED METHODS
     //////////////////////////////////////////
 
-    protected Bitmap getBitmap(Drawable drawable) {
-        return (drawable != null) ? ((BitmapDrawable) drawable).getBitmap() : null;
-    }
-
     protected float getCornerRadius(final TypedArray typedArray) {
         return typedArray.getFloat(R.styleable.CrystalSeekbar_corner_radius, 0f);
     }
@@ -581,11 +576,13 @@ public class CrystalSeekbar extends View {
     }
 
     protected Drawable getThumbDrawable(final TypedArray typedArray) {
-        return typedArray.getDrawable(R.styleable.CrystalSeekbar_thumb_image);
+        int id = typedArray.getResourceId(R.styleable.CrystalSeekbar_thumb_image, -1);
+        return id != -1 ? AppCompatResources.getDrawable(getContext(), id) : null;
     }
 
     protected Drawable getThumbDrawablePressed(final TypedArray typedArray) {
-        return typedArray.getDrawable(R.styleable.CrystalSeekbar_thumb_image_pressed);
+        int id = typedArray.getResourceId(R.styleable.CrystalSeekbar_thumb_image_pressed, -1);
+        return id != -1 ? AppCompatResources.getDrawable(getContext(), id) : null;
     }
 
     protected int getDataType(final TypedArray typedArray) {
