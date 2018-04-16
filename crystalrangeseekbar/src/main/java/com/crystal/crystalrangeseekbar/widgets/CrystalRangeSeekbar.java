@@ -9,13 +9,12 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
@@ -25,7 +24,7 @@ import com.example.crystalrangeseekbar.R;
 /**
  * Created by owais.ali on 6/20/2016.
  */
-public class CrystalRangeSeekbar extends View {
+public class CrystalRangeSeekbar extends Seekbar {
 
     //////////////////////////////////////////
     // PRIVATE CONSTANTS
@@ -546,10 +545,6 @@ public class CrystalRangeSeekbar extends View {
         return thumbWidth * 0.5f;
     }
 
-    protected Bitmap getBitmap(Drawable drawable){
-        return (drawable != null) ? ((BitmapDrawable) drawable).getBitmap() : null;
-    }
-
     protected float getCornerRadius(final TypedArray typedArray){
         return typedArray.getFloat(R.styleable.CrystalRangeSeekbar_corner_radius, 0f);
     }
@@ -634,20 +629,24 @@ public class CrystalRangeSeekbar extends View {
         return typedArray.getColor(R.styleable.CrystalRangeSeekbar_right_thumb_color_pressed, Color.DKGRAY);
     }
 
-    protected Drawable getLeftDrawable(final TypedArray typedArray){
-        return typedArray.getDrawable(R.styleable.CrystalRangeSeekbar_left_thumb_image);
+    protected Drawable getLeftDrawable(final TypedArray typedArray) {
+        int id = typedArray.getResourceId(R.styleable.CrystalRangeSeekbar_left_thumb_image, -1);
+        return id != -1 ? AppCompatResources.getDrawable(getContext(), id) : null;
     }
 
-    protected Drawable getRightDrawable(final TypedArray typedArray){
-        return typedArray.getDrawable(R.styleable.CrystalRangeSeekbar_right_thumb_image);
+    protected Drawable getRightDrawable(final TypedArray typedArray) {
+        int id = typedArray.getResourceId(R.styleable.CrystalRangeSeekbar_right_thumb_image, -1);
+        return id != -1 ? AppCompatResources.getDrawable(getContext(), id) : null;
     }
 
-    protected Drawable getLeftDrawablePressed(final TypedArray typedArray){
-        return typedArray.getDrawable(R.styleable.CrystalRangeSeekbar_left_thumb_image_pressed);
+    protected Drawable getLeftDrawablePressed(final TypedArray typedArray) {
+        int id = typedArray.getResourceId(R.styleable.CrystalRangeSeekbar_left_thumb_image_pressed, -1);
+        return id != -1 ? AppCompatResources.getDrawable(getContext(), id) : null;
     }
 
-    protected Drawable getRightDrawablePressed(final TypedArray typedArray){
-        return typedArray.getDrawable(R.styleable.CrystalRangeSeekbar_right_thumb_image_pressed);
+    protected Drawable getRightDrawablePressed(final TypedArray typedArray) {
+        int id = typedArray.getResourceId(R.styleable.CrystalRangeSeekbar_right_thumb_image_pressed, -1);
+        return id != -1 ? AppCompatResources.getDrawable(getContext(), id) : null;
     }
 
     protected int getDataType(final TypedArray typedArray){

@@ -28,7 +28,8 @@
                 <com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
                     android:id="@+id/rangeSeekbar1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    app:thumb_image="@drawable/ic_seek_bar" />
 
                 <TextView
                     android:id="@+id/textMin1"
