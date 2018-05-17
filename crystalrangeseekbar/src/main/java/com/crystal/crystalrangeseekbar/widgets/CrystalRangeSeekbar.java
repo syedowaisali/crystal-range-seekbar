@@ -74,6 +74,7 @@ public class CrystalRangeSeekbar extends View {
     private float steps;
     private float gap;
     private float fixGap;
+    private boolean stickyThumbs;
 
     private int mActivePointerId = INVALID_POINTER_ID;
 
@@ -176,6 +177,7 @@ public class CrystalRangeSeekbar extends View {
             thumbDiameter          = getDiameter(array);
             dataType               = getDataType(array);
             seekBarTouchEnabled    = isSeekBarTouchEnabled(array);
+            stickyThumbs           = isStickyThumbsEnabled(array);
         }
         finally {
             array.recycle();
@@ -405,6 +407,11 @@ public class CrystalRangeSeekbar extends View {
 
     public CrystalRangeSeekbar setDataType(int dataType){
         this.dataType = dataType;
+        return this;
+    }
+
+    public CrystalRangeSeekbar setStickyThumbs(boolean stickyThumbs){
+        this.stickyThumbs = stickyThumbs;
         return this;
     }
 
@@ -656,6 +663,10 @@ public class CrystalRangeSeekbar extends View {
 
     protected boolean isSeekBarTouchEnabled(final TypedArray typedArray){
         return typedArray.getBoolean(R.styleable.CrystalRangeSeekbar_seek_bar_touch_enabled, false);
+    }
+
+    protected boolean isStickyThumbsEnabled(final TypedArray typedArray){
+        return typedArray.getBoolean(R.styleable.CrystalRangeSeekbar_sticky_thumbs, false);
     }
 
     protected float getDiameter(final TypedArray typedArray){
@@ -972,8 +983,11 @@ public class CrystalRangeSeekbar extends View {
     private void addMinGap(){
         if((normalizedMinValue + gap) > normalizedMaxValue){
             double g = normalizedMinValue + gap;
-            normalizedMaxValue = g;
-            normalizedMaxValue = Math.max(0d, Math.min(100d, Math.max(g, normalizedMinValue)));
+
+            if (!stickyThumbs) {
+                normalizedMaxValue = g;
+                normalizedMaxValue = Math.max(0d, Math.min(100d, Math.max(g, normalizedMinValue)));
+            }
 
             if(normalizedMinValue >= (normalizedMaxValue - gap)){
                 normalizedMinValue = normalizedMaxValue - gap;
@@ -984,8 +998,12 @@ public class CrystalRangeSeekbar extends View {
     private void addMaxGap(){
         if((normalizedMaxValue - gap) < normalizedMinValue){
             double g = normalizedMaxValue - gap;
-            normalizedMinValue = g;
-            normalizedMinValue = Math.max(0d, Math.min(100d, Math.min(g, normalizedMaxValue)));
+
+            if (!stickyThumbs) {
+                normalizedMinValue = g;
+                normalizedMinValue = Math.max(0d, Math.min(100d, Math.min(g, normalizedMaxValue)));
+            }
+
             if(normalizedMaxValue <= (normalizedMinValue + gap)){
                 normalizedMaxValue = normalizedMinValue + gap;
             }
