@@ -583,7 +583,7 @@ public class CrystalRangeSeekbar extends View {
     }
 
     protected int getBarColorMode(final TypedArray typedArray) {
-        return typedArray.getInt(R.styleable.CrystalRangeSeekbar_bar_color_mode, CrystalSeekbar.ColorMode.SOLID);
+        return typedArray.getInt(R.styleable.CrystalRangeSeekbar_bar_color_mode, CrystalRangeSeekbar.ColorMode.SOLID);
     }
 
     protected float getBarHeight(final TypedArray typedArray){
@@ -603,7 +603,7 @@ public class CrystalRangeSeekbar extends View {
     }
 
     protected int getBarHighlightColorMode(final TypedArray typedArray) {
-        return typedArray.getInt(R.styleable.CrystalRangeSeekbar_bar_highlight_color_mode, CrystalSeekbar.ColorMode.SOLID);
+        return typedArray.getInt(R.styleable.CrystalRangeSeekbar_bar_highlight_color_mode, CrystalRangeSeekbar.ColorMode.SOLID);
     }
 
     protected int getBarHighlightColor(final TypedArray typedArray) {
@@ -679,7 +679,7 @@ public class CrystalRangeSeekbar extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
 
-        if (barColorMode == CrystalSeekbar.ColorMode.SOLID) {
+        if (barColorMode == CrystalRangeSeekbar.ColorMode.SOLID) {
             paint.setColor(barColor);
             drawBar(canvas, paint, rect);
 
@@ -708,7 +708,7 @@ public class CrystalRangeSeekbar extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
 
-        if (barHighlightColorMode == CrystalSeekbar.ColorMode.SOLID) {
+        if (barHighlightColorMode == CrystalRangeSeekbar.ColorMode.SOLID) {
             paint.setColor(barHighlightColor);
             drawHighlightBar(canvas, paint, rect);
 
