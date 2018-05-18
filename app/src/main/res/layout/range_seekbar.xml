@@ -69,6 +69,8 @@
                     app:corner_radius="10"
                     app:min_value="50"
                     app:max_value="150"
+                    app:sticky_thumbs="true"
+                    app:gap="5"
                     app:bar_color="#C69E89"
                     app:bar_highlight_color="#A54B17"
                     app:left_thumb_color="#775E4F"

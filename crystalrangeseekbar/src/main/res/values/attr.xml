@@ -100,5 +100,6 @@
         <attr name="right_thumb_image" format="reference" />
         <attr name="right_thumb_image_pressed" format="reference" />
         <attr name="seek_bar_touch_enabled" />
+        <attr name="sticky_thumbs" format="boolean" />
     </declare-styleable>
 </resources>
