@@ -3,7 +3,6 @@ package com.crystal.crystalrangeseekbar.ui.fragments;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -18,6 +17,8 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListen
 import com.crystal.crystalrangeseekbar.widgets.BubbleThumbRangeSeekbar;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.crystal.crystalrangeseekbar.widgets.MyRangeSeekbar;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by owais.ali on 7/15/2016.
@@ -66,11 +67,11 @@ public class RangeSeekbar extends Fragment {
     private void setRangeSeekbar1(){
 
         // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) rootView.findViewById(R.id.rangeSeekbar1);
+        final CrystalRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar1);
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin1);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax1);
+        final TextView tvMin = rootView.findViewById(R.id.textMin1);
+        final TextView tvMax = rootView.findViewById(R.id.textMax1);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -100,11 +101,11 @@ public class RangeSeekbar extends Fragment {
     private void setRangeSeekbar2(){
 
         // get seekbar from view
-        final BubbleThumbRangeSeekbar rangeSeekbar = (BubbleThumbRangeSeekbar) rootView.findViewById(R.id.rangeSeekbar2);
+        final BubbleThumbRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar2);
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin2);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax2);
+        final TextView tvMin = rootView.findViewById(R.id.textMin2);
+        final TextView tvMax = rootView.findViewById(R.id.textMax2);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -119,11 +120,11 @@ public class RangeSeekbar extends Fragment {
     private void setRangeSeekbar3(){
 
         // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) rootView.findViewById(R.id.rangeSeekbar3);
+        final CrystalRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar3);
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin3);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax3);
+        final TextView tvMin = rootView.findViewById(R.id.textMin3);
+        final TextView tvMax = rootView.findViewById(R.id.textMax3);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -138,11 +139,11 @@ public class RangeSeekbar extends Fragment {
     private void setRangeSeekbar4(){
 
         // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) rootView.findViewById(R.id.rangeSeekbar4);
+        final CrystalRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar4);
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin4);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax4);
+        final TextView tvMin = rootView.findViewById(R.id.textMin4);
+        final TextView tvMax = rootView.findViewById(R.id.textMax4);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -157,11 +158,11 @@ public class RangeSeekbar extends Fragment {
     private void setRangeSeekbar5(){
 
         // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) rootView.findViewById(R.id.rangeSeekbar5);
+        final CrystalRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar5);
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin5);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax5);
+        final TextView tvMin = rootView.findViewById(R.id.textMin5);
+        final TextView tvMax = rootView.findViewById(R.id.textMax5);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -176,11 +177,11 @@ public class RangeSeekbar extends Fragment {
     private void setRangeSeekbar6(){
 
         // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) rootView.findViewById(R.id.rangeSeekbar6);
+        final CrystalRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar6);
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin6);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax6);
+        final TextView tvMin = rootView.findViewById(R.id.textMin6);
+        final TextView tvMax = rootView.findViewById(R.id.textMax6);
 
         // set properties
         rangeSeekbar
@@ -213,8 +214,8 @@ public class RangeSeekbar extends Fragment {
         final CrystalRangeSeekbar rangeSeekbar = new CrystalRangeSeekbar(getActivity());
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin7);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax7);
+        final TextView tvMin = rootView.findViewById(R.id.textMin7);
+        final TextView tvMax = rootView.findViewById(R.id.textMax7);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
@@ -226,18 +227,18 @@ public class RangeSeekbar extends Fragment {
         });
 
         // get range seekbar container
-        RelativeLayout container = (RelativeLayout) rootView.findViewById(R.id.contRangeSeekbar7);
+        RelativeLayout container = rootView.findViewById(R.id.contRangeSeekbar7);
         container.addView(rangeSeekbar);
     }
 
     private void setRangeSeekbar8(){
 
         // get seekbar from view
-        final MyRangeSeekbar rangeSeekbar = (MyRangeSeekbar) rootView.findViewById(R.id.rangeSeekbar8);
+        final MyRangeSeekbar rangeSeekbar = rootView.findViewById(R.id.rangeSeekbar8);
 
         // get min and max text view
-        final TextView tvMin = (TextView) rootView.findViewById(R.id.textMin8);
-        final TextView tvMax = (TextView) rootView.findViewById(R.id.textMax8);
+        final TextView tvMin = rootView.findViewById(R.id.textMin8);
+        final TextView tvMax = rootView.findViewById(R.id.textMax8);
 
         // set listener
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
