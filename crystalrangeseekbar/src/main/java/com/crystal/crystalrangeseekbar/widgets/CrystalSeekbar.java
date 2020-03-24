@@ -96,8 +96,8 @@ public class CrystalSeekbar extends View {
     private float barPadding;
     private float _barHeight;
     private float barHeight;
-    private float thumbWidth;
-    private float thumbHeight;
+    private float thumbWidth = 30f;
+    private float thumbHeight = 30f;
     private float thumbDiameter;
     private Drawable thumbDrawable;
     private Drawable thumbDrawablePressed;
@@ -183,6 +183,7 @@ public class CrystalSeekbar extends View {
         thumbPressed = getBitmap(thumbDrawablePressed);
         thumbPressed = (thumbPressed == null) ? thumb : thumbPressed;
 
+        thumbWidth = getThumbWidth();
         thumbWidth = getThumbWidth();
         thumbHeight = getThumbHeight();
 
@@ -316,6 +317,16 @@ public class CrystalSeekbar extends View {
         return this;
     }
 
+    /* add support to customize thumb size */
+
+    public CrystalSeekbar setThumbSize(float thumbSize) {
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        this.thumbHeight = thumbSize * scale + 0.5f;
+        this.thumbWidth = thumbSize * scale + 0.5f;
+        this.thumbDiameter = (thumbSize * scale + 0.5f) / 2;
+        return this;
+    }
+
     public CrystalSeekbar setDataType(int dataType) {
         this.dataType = dataType;
         return this;
@@ -398,11 +409,11 @@ public class CrystalSeekbar extends View {
     }
 
     public float getThumbWidth() {
-        return (thumb != null) ? thumb.getWidth() : getThumbDiameter();
+        return (thumb != null) ? thumb.getWidth() : thumbWidth;
     }
 
     public float getThumbHeight() {
-        return (thumb != null) ? thumb.getHeight() : getThumbDiameter();
+        return (thumb != null) ? thumb.getHeight() : thumbHeight;
     }
 
     protected float getThumbDiameter() {

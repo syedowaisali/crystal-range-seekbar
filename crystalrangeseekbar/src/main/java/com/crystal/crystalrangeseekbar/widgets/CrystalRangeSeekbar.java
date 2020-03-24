@@ -97,12 +97,12 @@ public class CrystalRangeSeekbar extends View {
     private float barPadding;
     private float barHeight;
     private float _barHeight;
-    private float thumbWidth;
+    private float thumbWidth = getResources().getDimension(R.dimen.thumb_width);
     private float thumbDiameter;
 
     //private float thumbHalfWidth;
     //private float thumbHalfHeight;
-    private float thumbHeight;
+    private float thumbHeight = getResources().getDimension(R.dimen.thumb_height);
     private Drawable leftDrawable;
     private Drawable rightDrawable;
     private Drawable leftDrawablePressed;
@@ -408,6 +408,17 @@ public class CrystalRangeSeekbar extends View {
         return this;
     }
 
+
+    /* add support to customize thumb size */
+
+    public CrystalRangeSeekbar setThumbSize(float thumbSize) {
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        this.thumbHeight = thumbSize * scale + 0.5f;
+        this.thumbWidth = thumbSize * scale + 0.5f;
+        this.thumbDiameter = (thumbSize * scale + 0.5f) / 2;
+        return this;
+    }
+
     public void setOnRangeSeekbarChangeListener(OnRangeSeekbarChangeListener onRangeSeekbarChangeListener){
         this.onRangeSeekbarChangeListener = onRangeSeekbarChangeListener;
         if(this.onRangeSeekbarChangeListener != null){
@@ -527,17 +538,19 @@ public class CrystalRangeSeekbar extends View {
         return pressedThumb;
     }
 
-    protected float getThumbWidth(){
-        return (leftThumb != null)  ? leftThumb.getWidth() : getThumbDiameter();
+
+    protected float getThumbWidth() {
+        return (leftThumb != null) ? leftThumb.getWidth() : thumbWidth;
     }
 
-    protected float getThumbHeight(){
-        return (leftThumb != null)  ? leftThumb.getHeight() : getThumbDiameter();
+    protected float getThumbHeight() {
+        return (leftThumb != null) ? leftThumb.getHeight() : thumbHeight;
     }
 
-    protected float getThumbDiameter(){
-        return (thumbDiameter > 0) ? thumbDiameter :  getResources().getDimension(R.dimen.thumb_width);
+    protected float getThumbDiameter() {
+        return (thumbDiameter > 0) ? thumbDiameter : thumbWidth;
     }
+
     protected float getBarHeight(){
         return _barHeight > 0 ? _barHeight : (thumbHeight * 0.5f) * 0.3f;
     }
