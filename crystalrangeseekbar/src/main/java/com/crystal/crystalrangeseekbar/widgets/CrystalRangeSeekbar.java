@@ -848,7 +848,7 @@ public class CrystalRangeSeekbar extends View {
 
     private void setMaxStartValue() {
         if (maxStartValue <= absoluteMaxValue && maxStartValue > absoluteMinValue && maxStartValue >= absoluteMinStartValue) {
-            maxStartValue = Math.max(absoluteMaxStartValue, absoluteMinValue);
+            maxStartValue = Math.max(maxStartValue, absoluteMinValue);
             maxStartValue -= absoluteMinValue;
             maxStartValue = maxStartValue / (absoluteMaxValue - absoluteMinValue) * 100;
             setNormalizedMaxValue(maxStartValue);
